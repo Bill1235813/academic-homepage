@@ -21,7 +21,7 @@
 
       <!-- Left Nav Bar -->
       {{ $align_right := .Site.Params.menu_align_right | default true }}
-      <ul class="navbar-nav {{ if $align_right }}ml-auto{{ else }}mr-auto{{ end }}">
+      <ul class="navbar-nav {{ if $align_right }}mr-auto{{ else }}ml-auto{{ end }}">
         {{ range .Site.Menus.main }}
 
         {{ if .HasChildren }}
@@ -68,7 +68,7 @@
 
       {{ if not $align_right | and (.IsTranslated | or .Site.Menus.main_right | or .Site.Params.search.engine | or .Site.Params.day_night) }}
       </ul>
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav mr-auto">
       {{ end }}
 
         {{ range .Site.Menus.main_right }}
