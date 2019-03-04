@@ -17,7 +17,7 @@ authors = ["Guiliang Liu", "<strong>Wang Zhu</strong>", "Oliver Schulte"]
 publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
-publication = "MLSA@PKDD/ECML, 2018"
+publication = "<a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=76129&copyownerid=49896" target="_blank">MLSA@PKDD/ECML</a>, 2018"
 publication_short = ""
 
 # Abstract.

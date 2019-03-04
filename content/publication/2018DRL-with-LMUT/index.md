@@ -17,7 +17,7 @@ authors = ["Guiliang Liu", "Oliver Schulte", "<strong>Wang Zhu</strong>", "Qingc
 publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
-publication = "ECML-PKDD, 2018"
+publication = "<a href="http://www.ecmlpkdd2018.org/" target="_blank">ECML-PKDD</a>, 2018"
 publication_short = ""
 
 # Abstract.
