@@ -19,6 +19,7 @@ publication_types = ["0"]
 # Publication name and optional abbreviated version.
 publication = ""
 publication_short = ""
+publication_link = ""
 
 # Abstract.
 abstract = ""
