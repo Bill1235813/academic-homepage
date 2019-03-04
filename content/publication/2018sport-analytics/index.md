@@ -53,8 +53,8 @@ projects = []
 slides = ""
 
 # Links (optional).
-url_pdf = ""
-url_preprint = "https://dtai.cs.kuleuven.be/events/MLSA18/papers/liu_guiliang_mlsa18.pdf"
+url_pdf = "https://dtai.cs.kuleuven.be/events/MLSA18/papers/liu_guiliang_mlsa18.pdf"
+url_preprint = ""
 url_code = ""
 url_dataset = ""
 url_project = ""
