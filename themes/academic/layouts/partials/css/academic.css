@@ -914,12 +914,8 @@ article {
 }
 
 .article-banner {
-  width: 345px;
-  height: 256px;
-}
-
-.aligncenter {
-  text-align: center;
+  width: 100%;
+  height: auto;
 }
 
 .featured-image {

@@ -59,9 +59,7 @@
   {{ with $resource }}
   {{ $image := .Fill (printf "918x517 q90 %s" $anchor) }}
   <a href="{{ $item.RelPermalink }}">
-      <p class="aligncenter">
       <img src="{{ $image.RelPermalink }}" style="object-fit: contain" class="article-banner" itemprop="image" alt="">
-      </p>
   </a>
   {{end}}
 
