@@ -37,7 +37,7 @@
     {{ if $.Params.publication_short }}
       {{ $.Params.publication_short | markdownify }}
     {{ else if $.Params.publication }}
-      {{ - printf "<a href=\"%v\" target="_blank">%v</a>" $.Params.publication_link ($.Params.publication | markdownify) -}}
+      {{- printf "<a href=\"%v\" target="_blank">%v</a>" $.Params.publication_link ($.Params.publication | markdownify) }}
     {{ end }}
   </span>
   {{ end }}
