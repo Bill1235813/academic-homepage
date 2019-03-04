@@ -3,7 +3,7 @@ title = "Interpreting Deep Sports Analytics: Valuing Actions and Players in the 
 date = 2018-09-16T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Guiliang Liu", "<strong>Wang Zhu</strong>", "Oliver Schulte"]
+authors = ["Guiliang Liu", "__**Wang Zhu**__", "Oliver Schulte"]
 
 # Publication type.
 # Legend:

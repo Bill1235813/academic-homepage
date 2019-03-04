@@ -1,9 +1,10 @@
 +++
 title = "Toward Interpretable Deep ReinforcementLearning with Linear Model U-Trees"
 date = 2018-07-16T00:00:00
+draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Guiliang Liu", "Oliver Schulte", "<strong>Wang Zhu</strong>", "Qingcan Li"]
+authors = ["Guiliang Liu", "Oliver Schulte", "__**Wang Zhu**__", "Qingcan Li"]
 
 # Publication type.
 # Legend:

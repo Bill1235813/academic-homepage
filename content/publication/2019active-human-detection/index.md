@@ -1,6 +1,7 @@
 +++
 title = "Active Human Detection"
 date = 2019-03-01T00:00:00
+draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["Someone", "Wang Zhu", "Someone"]
