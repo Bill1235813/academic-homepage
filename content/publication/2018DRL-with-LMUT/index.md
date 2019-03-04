@@ -3,7 +3,7 @@ title = "Toward Interpretable Deep ReinforcementLearning with Linear Model U-Tre
 date = 2018-07-16T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Guiliang Liu", "Oliver Schulte", "Wang Zhu", "Qingcan Li"]
+authors = ["Guiliang Liu", "Oliver Schulte", "<strong>Wang Zhu</strong>", "Qingcan Li"]
 
 # Publication type.
 # Legend:
@@ -53,8 +53,8 @@ projects = []
 slides = ""
 
 # Links (optional).
-url_pdf = ""
-url_preprint = "https://arxiv.org/pdf/1807.05887.pdf"
+url_pdf = "https://arxiv.org/pdf/1807.05887.pdf"
+url_preprint = ""
 url_code = "https://github.com/Guiliang/DRL-ice-hockey"
 url_dataset = ""
 url_project = ""
