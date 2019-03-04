@@ -1,10 +1,9 @@
 +++
 title = "Toward Interpretable Deep ReinforcementLearning with Linear Model U-Trees"
 date = 2018-07-16T00:00:00
-draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Guiliang Liu", "Oliver Schulte", "__**Wang Zhu**__", "Qingcan Li"]
+authors = ["Guiliang Liu", "Oliver Schulte", "__**Wang Zhu**__"", "Qingcan Li"]
 
 # Publication type.
 # Legend:
@@ -18,7 +17,7 @@ authors = ["Guiliang Liu", "Oliver Schulte", "__**Wang Zhu**__", "Qingcan Li"]
 publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
-publication = "ECML-PKDD, 2018"
+publication = "<a href="http://www.ecmlpkdd2018.org/" target="_blank">ECML-PKDD, 2018</a>"
 publication_short = ""
 
 # Abstract.

@@ -1,7 +1,6 @@
 +++
 title = "Interpreting Deep Sports Analytics: Valuing Actions and Players in the NHL"
 date = 2018-09-16T00:00:00
-draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["Guiliang Liu", "__**Wang Zhu**__", "Oliver Schulte"]
@@ -18,7 +17,7 @@ authors = ["Guiliang Liu", "__**Wang Zhu**__", "Oliver Schulte"]
 publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
-publication = "MLSA@ECML-PKDD, 2018"
+publication = "<a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=76129&copyownerid=49896" target="_blank">MLSA@PKDD/ECML, 2018</a>"
 publication_short = ""
 
 # Abstract.
