@@ -127,7 +127,7 @@ sharing = true
 [publications]
   # Date format (refer to https://sourcethemes.com/academic/docs/customization/#date-format )
   #   Examples: "Mon, Jan 2, 2006" or "2006-01-02"
-  date_format = "January 2006"
+  date_format = ""
 
   # Citation style ("apa" or "mla")
   citation_style = "apa"
@@ -149,7 +149,7 @@ sharing = true
   #   0: No search engine
   #   1: Academic (built-in)
   #   2: Algolia (https://www.algolia.com)
-  #engine = 1
+  #engine = 0
 
   # Configuration of Algolia search engine.
   # Paste the values from your Algolia dashboard.
