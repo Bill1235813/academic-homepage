@@ -33,11 +33,13 @@
 
   {{ if and (eq $is_list 1) (eq $.Type "publication") }}
   <span class="middot-divider"></span>
+  <span itemprop="name">
   {{ if $.Params.publication_short }}
       {{ $.Params.publication_short | markdownify }}
     {{ else if $.Params.publication }}
       {{- printf "<a href=\"%s\" target=\"_blank\">%s</a>" $.Params.publication_link ($.Params.publication | markdownify) }}
     {{ end }}
+  </span>
   {{ end }}
 
   {{ if and (eq $.Type "post") (not (or (eq $.Site.Params.reading_time false) (eq $.Params.reading_time false))) }}
