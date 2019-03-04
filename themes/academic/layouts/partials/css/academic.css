@@ -916,7 +916,6 @@ article {
 .article-banner {
   width: 345px;
   height: 256px;
-  object-fit: contain;
 }
 
 .aligncenter {
