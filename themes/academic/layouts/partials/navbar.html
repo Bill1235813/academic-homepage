@@ -21,7 +21,7 @@
 
       <!-- Left Nav Bar -->
       {{ if (.IsTranslated | or .Site.Menus.main_right | or .Site.Params.search.engine | or .Site.Params.day_night) }}      
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav mr-auto">
       {{ end }}
 
         {{ range .Site.Menus.main_right }}
