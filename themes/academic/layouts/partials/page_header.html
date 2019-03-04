@@ -19,9 +19,9 @@
 <div class="article-header">
   {{ $img_src := urls.Parse .Params.header.image }}
   {{ if $img_src.Scheme }}
-  <img src="{{ .Params.header.image }}" class="article-banner" itemprop="image" alt="">
+  <img src="{{ .Params.header.image }}" style='object-fit: contain' class="article-banner" itemprop="image" alt="">
   {{ else }}
-  <img src="{{ (printf "/img/%s" .Params.header.image) | relURL }}" class="article-banner" itemprop="image" alt="">
+  <img src="{{ (printf "/img/%s" .Params.header.image) | relURL }}" style='object-fit: contain' class="article-banner" itemprop="image" alt="">
   {{ end }}
 
   {{ with .Params.header.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
