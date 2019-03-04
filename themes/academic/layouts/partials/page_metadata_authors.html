@@ -13,7 +13,7 @@
         {{ $person := $person_page.Params }}
         {{- printf "%s" $link $person.name | safeHTML -}}
       {{- else -}}
-                {{- printf "%s" $link ($v | markdownify) | safeHTML -}}
+                {{- printf "$v" $link ($v | markdownify) | safeHTML -}}
       {{- end -}}
       </span>{{- /* This comment removes whitespace */ -}}
     </span>
