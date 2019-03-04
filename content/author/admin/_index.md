@@ -23,9 +23,8 @@ email = ""
 
 # List (academic) interests or hobbies
 interests = [
-  "Artificial Intelligence",
-  "Computational Linguistics",
-  "Information Retrieval"
+  "Deep Reinforcement Learning",
+  "Computer Vision"
 ]
 
 # Organizational groups that you belong to (for People widget)
@@ -68,7 +67,10 @@ interests = [
   icon_pack = "ai"
   link = "https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" -->
 
-https://www.linkedin.com/in/wang-zhu-398669161/
+[[social]]
+  icon = "linkedin"
+  icon_pack = "fab"
+  link= "https://www.linkedin.com/in/wang-zhu-398669161/"
 
 [[social]]
   icon = "github"
