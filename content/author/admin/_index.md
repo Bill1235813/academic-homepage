@@ -29,7 +29,6 @@ interests = [
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
-<!-- user_groups = ["Researchers", "Visitors"] -->
 
 # List qualifications (such as academic degrees)
 [[education.courses]]
@@ -42,10 +41,6 @@ interests = [
   institution = "Zhejiang University"
   year = 2020
 
-<!-- [[education.courses]]
-  course = "BSc in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2008 -->
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
@@ -56,16 +51,6 @@ interests = [
   icon = "envelope"
   icon_pack = "fas"
   link = "mailto:zhuwangz@sfu.ca"  # For a direct email link, use "mailto:test@example.org".
-
-<!-- [[social]]
-  icon = "twitter"
-  icon_pack = "fab"
-  link = "https://twitter.com/GeorgeCushen"
-
-[[social]]
-  icon = "google-scholar"
-  icon_pack = "ai"
-  link = "https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" -->
 
 [[social]]
   icon = "linkedin"
@@ -86,6 +71,8 @@ interests = [
 
 +++
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+I am currently an undergraduate student of the Dual Degree Program between Simon Fraser University and Zhejiang University. I spent the first two years of my college life in Zhejiang University which locates in Hangzhou, and the next three years in Simon Fraser University which locates in Vancover. Both are beautiful cities with tasty food！
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. 
+My reserach interests mainly focus on machine learning and computer vision. Now I am working with <a href="http://www.cs.sfu.ca/~mori/" target="_blank">Prof.Greg Mori</a> on computer vision using deep learning methods. Previously, I worked with <a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof.Oliver Schulte</a> on sports analytics with deep reinforcement learning methods.
+
+Here is my resume (todo). 
