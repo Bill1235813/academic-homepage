@@ -5,7 +5,8 @@
   {{ range $k, $v := $.Params.authors -}}
     <span itemscope itemprop="author" itemtype="http://schema.org/Person">
       <span itemprop="name">
-        {{ $link := ($.Site.GetPage (printf "/authors/%s" $v)).RelPermalink }}
+        $v
+        <!-- {{ $link := ($.Site.GetPage (printf "/authors/%s" $v)).RelPermalink }}
 
       {{ $person_page_path := (printf "/author/%s" (urlize $v)) }}
       {{ $person_page := $.Site.GetPage $person_page_path }}
@@ -13,8 +14,8 @@
         {{ $person := $person_page.Params }}
         {{- printf "%s" $link $person.name | safeHTML -}}
       {{- else -}}
-                {{- printf "$v" $link ($v | markdownify) | safeHTML -}}
-      {{- end -}}
+                {{- printf "<a href=\"%s\">%s</a>" $link ($v | markdownify) | safeHTML -}}
+      {{- end -}} -->
       </span>{{- /* This comment removes whitespace */ -}}
     </span>
     {{- if lt $k (sub $authorLen 1) -}}, {{ end }}
