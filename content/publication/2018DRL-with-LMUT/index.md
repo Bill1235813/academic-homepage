@@ -18,7 +18,7 @@ publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
 publication = "ECML-PKDD, 2018"
-publication_short = "ECML-PKDD"
+publication_short = ""
 
 # Abstract.
 abstract = ""

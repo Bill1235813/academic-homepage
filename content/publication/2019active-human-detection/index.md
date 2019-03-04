@@ -18,7 +18,7 @@ publication_types = ["0"]
 
 # Publication name and optional abbreviated version.
 publication = "Undetermined"
-publication_short = "Undetermined"
+publication_short = ""
 
 # Abstract.
 abstract = ""
