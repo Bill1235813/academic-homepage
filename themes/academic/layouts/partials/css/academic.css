@@ -916,6 +916,7 @@ article {
 .article-banner {
   width: 345px;
   height: auto;
+  text-align: center;
 }
 
 .featured-image {
