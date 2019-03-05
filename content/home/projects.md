@@ -29,6 +29,14 @@ subtitle = ""
   tag = "Deep Learning"
   
   [[content.filter_button]]
+  name = "NLP"
+  tag = "NLP"
+
+  [[content.filter_button]]
+  name = "System"
+  tag = "System"
+
+  [[content.filter_button]]
   name = "Other"
   tag = "Other"
 

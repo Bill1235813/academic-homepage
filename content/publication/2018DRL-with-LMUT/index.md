@@ -61,7 +61,7 @@ url_dataset = ""
 url_project = ""
 url_slides = ""
 url_video = ""
-url_poster = ""
+url_poster = "https://billzhu.me/publication/2018DRL-with-LMUT/ECML18_poster.pdf"
 url_source = ""
 
 # Custom links (optional).
