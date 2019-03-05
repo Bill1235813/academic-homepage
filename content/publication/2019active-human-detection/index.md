@@ -1,10 +1,9 @@
 +++
 title = "Active Human Detection"
 date = 2019-03-01T00:00:00
-draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Someone", "Wang Zhu", "Someone"]
+authors = ["Sha Hu", "Wang Zhu", "Zhiwei Deng", "Greg Mori"]
 
 # Publication type.
 # Legend:
@@ -18,9 +17,9 @@ authors = ["Someone", "Wang Zhu", "Someone"]
 publication_types = ["0"]
 
 # Publication name and optional abbreviated version.
-publication = "Undetermined"
+publication = "IROS, 2019"
 publication_short = ""
-publication_link = "http://google.com"
+publication_link = "https://www.iros2019.org/"
 
 # Abstract.
 abstract = ""
@@ -56,7 +55,7 @@ slides = ""
 
 # Links (optional).
 url_pdf = ""
-url_preprint = "https://www.google.com/search?q=active+human+detection"
+url_preprint = "https://billzhu.me/publication/2019active-human-detection/active_human_detection.pdf"
 url_code = ""
 url_dataset = ""
 url_project = ""
