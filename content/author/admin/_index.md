@@ -74,5 +74,3 @@ interests = [
 I am currently an undergraduate student of the Dual Degree Program between Simon Fraser University and Zhejiang University. I spent the first two years of my college life in Zhejiang University which locates in Hangzhou, and the next three years in Simon Fraser University which locates in Vancover. Both are beautiful cities with tasty food！
 
 My reserach interests mainly focus on machine learning and computer vision. Now I am working in <a href="http://vml.cs.sfu.ca/" target="_blank">SFU Vision and Media Lab</a> with <a href="http://www.cs.sfu.ca/~mori/" target="_blank">Prof.Greg Mori</a> on computer vision using deep learning methods. Previously, I worked in <a href="http://www.sfu.ca/computationallogic/" target="_blank">SFU Computational Logic Lab</a> with <a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof.Oliver Schulte</a> on sports analytics with deep reinforcement learning methods.
-
-Here is my resume (todo). 
