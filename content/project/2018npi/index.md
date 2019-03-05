@@ -1,5 +1,5 @@
 +++
-title = "2018npi"
+title = "Hybrid Training Neural-Programmer-Interpreter"
 date = 2019-03-05T00:05:37-08:00
 draft = false
 
@@ -8,7 +8,7 @@ draft = false
 tags = ["Deep Learning", "NLP"]
 
 # Project summary to display on homepage.
-summary = "A Neural Programmer-Interpreter hybridly trained in strong-supervision mode and reinforcement-learning mode"
+summary = "A Neural-Programmer-Interpreter hybridly trained in strong-supervision mode and reinforcement-learning mode"
 
 # Slides (optional).
 #   Associate this page with Markdown slides.

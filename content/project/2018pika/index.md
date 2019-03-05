@@ -1,5 +1,5 @@
 +++
-title = "2018pika"
+title = "Pika Compiler"
 date = 2019-03-02T00:51:48-08:00
 draft = false
 

@@ -1,6 +1,6 @@
 +++
-title = "2018drl"
-date = 2019-03-06T00:43:46-08:00
+title = "Deep Reinforcement Learning in Ice Hockey"
+date = 2019-03-05T00:43:46-08:00
 draft = false
 
 # Tags: can be used for filtering projects.

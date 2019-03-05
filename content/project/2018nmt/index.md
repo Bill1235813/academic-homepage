@@ -1,5 +1,5 @@
 +++
-title = "2018nmt"
+title = "Dual Learning Neural-Machine-Translation"
 date = 2019-03-04T00:17:19-08:00
 draft = false
 
