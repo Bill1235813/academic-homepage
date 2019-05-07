@@ -1,9 +1,9 @@
 +++
-title = "Active Human Detection"
+title = "Learning to Search Person in Interactive Enviroment"
 date = 2019-03-01T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Sha Hu", "Wang Zhu", "Zhiwei Deng", "Greg Mori"]
+authors = ["Sha Hu", "__**Wang Zhu**__", "Zhiwei Deng", "Greg Mori"]
 
 # Publication type.
 # Legend:
@@ -54,8 +54,7 @@ projects = []
 slides = ""
 
 # Links (optional).
-url_pdf = ""
-url_preprint = "https://billzhu.me/publication/2019active-human-detection/active_human_detection.pdf"
+#url_preprint = "https://billzhu.me/publication/2019active-human-detection/active_human_detection.pdf"
 url_code = ""
 url_dataset = ""
 url_project = ""
