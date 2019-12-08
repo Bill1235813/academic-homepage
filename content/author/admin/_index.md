@@ -25,7 +25,7 @@ email = ""
 interests = [
   "Vision-and-Language Grounding",
   "Computer Vision",
-  "Natural Language Processing"",
+  "Natural Language Processing",
   "Reinforcement Learning"
 ]
 
