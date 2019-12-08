@@ -1,6 +1,7 @@
 +++
 title = "Learning to Search Person in Interactive Enviroment (in submission)"
 date = 2019-03-01T00:00:00
+active = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["Sha Hu", "__**Wang Zhu**__", "Zhiwei Deng", "Greg Mori"]

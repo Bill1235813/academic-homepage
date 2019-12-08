@@ -51,7 +51,7 @@ time_format = "3:04 PM"
 
 # Enter contact details (optional). To hide a field, clear it to "".
 email = "zhuwangz@sfu.ca"
-phone = "604 783 8739"
+phone = "604-783-8739"
 address = "Burnaby, Vancouver, BC"
 
 # Office hours: use `<br>` to insert a line break, or set to "" to remove office hours
@@ -59,7 +59,7 @@ address = "Burnaby, Vancouver, BC"
 #                  Wednesday 09:00 to 10:00"""
 
 # Enter an optional link for booking appointments (e.g. calendly.com).
-appointment_url = "https://billzhu.youcanbook.me"
+#appointment_url = "https://billzhu.youcanbook.me"
 
 # Contact links
 #   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.
