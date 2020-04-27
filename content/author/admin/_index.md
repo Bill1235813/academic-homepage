@@ -81,7 +81,7 @@ interests = [
 
 I am currently an undergraduate student of the Dual Degree Program 
 between Simon Fraser University and Zhejiang University. 
-I spent the first two years of my college life in Zhejiang University which locates in Hangzhou, 
+I spent the first two years of my college life in Zhejiang University which located at in Hangzhou, 
 and the next three years in Simon Fraser University which locates in Vancover. 
 Both are beautiful cities with tasty food！
 
