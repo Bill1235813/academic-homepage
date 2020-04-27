@@ -81,8 +81,8 @@ interests = [
 
 I am currently an undergraduate student of the Dual Degree Program 
 between Simon Fraser University and Zhejiang University. 
-I spent the first two years of my college life in Zhejiang University which is located at Hangzhou, 
-and the next three years in Simon Fraser University which is located at Vancouver. 
+I spent the first two years of my college life in Zhejiang University which is located in Hangzhou, 
+and the next three years in Simon Fraser University which is located in Vancouver. 
 Both are beautiful cities with tasty food！
 
 My reserach interests mainly focus on machine learning and computer vision. 
