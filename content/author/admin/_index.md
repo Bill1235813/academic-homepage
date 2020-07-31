@@ -85,7 +85,7 @@ I spent the first two years of my college life in Zhejiang University which is l
 and the next three years in Simon Fraser University which is located in Vancouver. 
 Both are beautiful cities with tasty food！
 
-My reserach interests mainly focus on machine learning and computer vision. 
+My research interests mainly focus on machine learning and computer vision. 
 Now I am working in <a href="http://vml.cs.sfu.ca/" target="_blank">SFU Vision and Media Lab</a> 
 with <a href="http://www.cs.sfu.ca/~mori/" target="_blank">Prof.Greg Mori</a> 
 on computer vision using deep learning methods. 

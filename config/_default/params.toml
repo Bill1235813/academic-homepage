@@ -50,8 +50,8 @@ time_format = "3:04 PM"
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = "zhuwangz@sfu.ca"
-phone = "604-783-8739"
+email = "zhuwangz at sfu dot ca"
+#phone = "604-783-8739"
 address = "Burnaby, Vancouver, BC"
 
 # Office hours: use `<br>` to insert a line break, or set to "" to remove office hours
@@ -67,7 +67,7 @@ contact_links = [
   {icon = "skype", icon_pack = "fab", name = "Skype Me", link = "skype:live:513607754?call"},
   # {icon = "keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/"},
   # {icon = "comments", icon_pack = "fas", name = "Discuss on Forum", link = "https://discourse.gohugo.io"},
-  {icon = "telegram", icon_pack = "fab", name = "Telegram Me", link = "https://telegram.me/BillZhu"},
+  # {icon = "telegram", icon_pack = "fab", name = "Telegram Me", link = "https://telegram.me/BillZhu"},
   ]
 
 # Display a map.
