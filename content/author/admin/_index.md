@@ -35,17 +35,16 @@ interests = [
 [[education.courses]]
   course = "Ph.D in Computer Science"
   institution = "University of Southern California"
-  year = 2021-Present
 
 [[education.courses]]
   course = "B.Sc in Computer Science"
   institution = "Simon Fraser University"
-  year = 2015-2020
+  year = 2020
 
 [[education.courses]]
   course = "B.Eng in Computer Science"
   institution = "Zhejiang University"
-  year = 2015-2020
+  year = 2020
 
 
 # Social/Academic Networking
