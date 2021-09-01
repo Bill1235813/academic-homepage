@@ -32,9 +32,9 @@ interests = [
 # Set this to `[]` or comment out if you are not using People widget.
 
 # List qualifications (such as academic degrees)
-[[education.courses]]
-  course = "Ph.D in Computer Science"
-  institution = "University of Southern California"
+#[[education.courses]]
+#  course = "Ph.D in Computer Science"
+#  institution = "University of Southern California"
 
 [[education.courses]]
   course = "B.Sc in Computer Science"
