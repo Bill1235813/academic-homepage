@@ -9,11 +9,11 @@ authors = ["admin"]
 superuser = true
 
 # Role/position
-role = "Undergraduate Student"
+role = "Ph.D Student"
 
 # Organizations/Affiliations
 #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-organizations = [ { name = "Simon Fraser University", url = "https://www.sfu.ca/" }, { name = "Zhejiang University", url = "https://www.zju.edu.cn/english/" } ]
+organizations = [ { name = "University of Southern California", url = "https://www.usc.edu" } ]
 
 # Short bio (displayed in user profile at end of posts)
 bio = ""
@@ -24,7 +24,6 @@ email = ""
 # List (academic) interests or hobbies
 interests = [
   "Vision-and-Language Grounding",
-  "Computer Vision",
   "Natural Language Processing",
   "Reinforcement Learning"
 ]
@@ -34,14 +33,19 @@ interests = [
 
 # List qualifications (such as academic degrees)
 [[education.courses]]
+  course = "Ph.D in Computer Science"
+  institution = "University of Southern California"
+  year = 2021-Present
+
+[[education.courses]]
   course = "B.Sc in Computer Science"
   institution = "Simon Fraser University"
-  year = 2020
+  year = 2015-2020
 
 [[education.courses]]
   course = "B.Eng in Computer Science"
   institution = "Zhejiang University"
-  year = 2020
+  year = 2015-2020
 
 
 # Social/Academic Networking
@@ -54,16 +58,10 @@ interests = [
   icon_pack = "ai"
   link = "https://scholar.google.com/citations?user=dMkqNF8AAAAJ&hl=en"
 
-
 [[social]]
-  icon = "envelope"
-  icon_pack = "fas"
-  link = "mailto:zhuwangz@sfu.ca"  # For a direct email link, use "mailto:test@example.org".
-
-#[[social]]
-#  icon = "linkedin"
-#  icon_pack = "fab"
-#  link= "https://www.linkedin.com/in/wang-zhu-398669161/"
+  icon = "twitter"
+  icon_pack = "fab"
+  link= "https://twitter.com/BillJohn1235813"
 
 [[social]]
   icon = "github"
@@ -79,16 +77,8 @@ interests = [
 
 +++
 
-I am currently an undergraduate student of the Dual Degree Program 
-between Simon Fraser University and Zhejiang University. 
-I spent the first two years of my college life in Zhejiang University which is located in Hangzhou, 
-and the next three years in Simon Fraser University which is located in Vancouver. 
-Both are beautiful cities with tasty food！
-
-My research interests mainly focus on machine learning and computer vision. 
-Now I am working in <a href="http://vml.cs.sfu.ca/" target="_blank">SFU Vision and Media Lab</a> 
-with <a href="http://www.cs.sfu.ca/~mori/" target="_blank">Prof.Greg Mori</a> 
-on computer vision using deep learning methods. 
-Previously, I worked in <a href="http://www.sfu.ca/computationallogic/" target="_blank">SFU Computational Logic Lab</a> 
-with <a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof.Oliver Schulte</a> 
-on sports analytics with deep reinforcement learning methods.
+I am currently a graduate student in University of Southern California. 
+My research interests mainly focus on machine learning and natural language processing. 
+Now I am working with <a href="https://viterbi-web.usc.edu/~feisha/" target="_blank">Prof.Fei Sha</a>. 
+Previously, I worked with <a href="https://www.cs.sfu.ca/~mori/" target="_blank">Prof.Greg Mori</a> and <a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof.Oliver Schulte</a> 
+on computer vision and reinforcement learning.

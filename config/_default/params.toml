@@ -50,9 +50,9 @@ time_format = "3:04 PM"
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = "zhuwangz at sfu dot ca"
-#phone = "604-783-8739"
-address = "Burnaby, Vancouver, BC"
+email = "wangzhu at usc dot edu"
+# phone = "604-783-8739"
+address = "Los Angeles, CA, USA"
 
 # Office hours: use `<br>` to insert a line break, or set to "" to remove office hours
 #office_hours = """Monday 10:00 to 13:00<br>

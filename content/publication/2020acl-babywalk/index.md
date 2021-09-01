@@ -3,7 +3,7 @@ title = "BabyWalk: Going Farther in Vision-and-Language Navigation by Taking Bab
 date = 2020-07-06T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["__**Wang Zhu**__", "Hexiang Hu", "Jiacheng Chen", "Zhiwei Deng", "Vihan Jain", "Eugene Ie", "Fei Sha"]
+authors = ["__**Wang Zhu***__", "Hexiang Hu*", "Jiacheng Chen", "Zhiwei Deng", "Vihan Jain", "Eugene Ie", "Fei Sha"]
 
 # Publication type.
 # Legend:
