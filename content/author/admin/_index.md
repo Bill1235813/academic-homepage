@@ -23,9 +23,9 @@ email = ""
 
 # List (academic) interests or hobbies
 interests = [
-  "Vision-and-Language Grounding",
   "Natural Language Processing",
-  "Reinforcement Learning"
+  "Vision-and-Language Grounding",
+  "Machine Learning"
 ]
 
 # Organizational groups that you belong to (for People widget)
@@ -77,7 +77,7 @@ interests = [
 +++
 
 I am currently a graduate student in University of Southern California. 
-My research interests mainly focus on machine learning and natural language processing. 
+My research interests mainly focus on natural language processing and machine learning. 
 Now I am working with <a href="https://viterbi-web.usc.edu/~feisha/" target="_blank">Prof.Fei Sha</a>. 
 Previously, I worked with <a href="https://www.cs.sfu.ca/~mori/" target="_blank">Prof.Greg Mori</a> and <a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof.Oliver Schulte</a> 
-on computer vision and reinforcement learning.
+on robotics and reinforcement learning.
