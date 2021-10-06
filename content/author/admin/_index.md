@@ -76,8 +76,17 @@ interests = [
 
 +++
 
-I am currently a graduate student in University of Southern California. 
-My research interests mainly focus on natural language processing and machine learning. 
-Now I am working with <a href="https://viterbi-web.usc.edu/~feisha/" target="_blank">Prof.Fei Sha</a>. 
-Previously, I worked with <a href="https://www.cs.sfu.ca/~mori/" target="_blank">Prof.Greg Mori</a> and <a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof.Oliver Schulte</a> 
+I am currently a Ph.D student at University of Southern California, co-advised by 
+<a href="https://robinjia.github.io/" target="_blank">Prof.Robin Jia</a> and 
+<a href="https://jessethomason.com/" target="_blank">Prof.Jesse Thomason</a>.
+My research interests mainly focus on natural language processing and machine learning.
+Previously, I worked with 
+<a href="https://viterbi-web.usc.edu/~feisha/" target="_blank">Prof.Fei Sha</a> 
+on vision-language navigation.
+
+
+I finished my bachelor of computer science at Simon Fraser University and Zhejiang University through a Dual Degree Program. 
+During my undergraduate period, I worked with 
+<a href="https://www.cs.sfu.ca/~mori/" target="_blank">Prof.Greg Mori</a> and 
+<a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof.Oliver Schulte</a> 
 on robotics and reinforcement learning.
