@@ -33,18 +33,18 @@ interests = [
 
 # List qualifications (such as academic degrees)
 [[education.courses]]
-  course = "Ph.D. in Computer Science"
-  institution = "University of Southern California, 2021 -"
+  course = "Ph.D. in Computer Science, 2021 - "
+  institution = "University of Southern California"
 #  year = 2021
 
 [[education.courses]]
-  course = "B.Sc. in Computer Science"
-  institution = "Simon Fraser University, 2017 - 2020"
+  course = "B.Sc. in Computer Science, 2017 - 2020"
+  institution = "Simon Fraser University"
 #  year = 2017-2020
 
 [[education.courses]]
-  course = "B.Eng. in Computer Science"
-  institution = "Zhejiang University, 2015 - 2020"
+  course = "B.Eng. in Computer Science, 2015 - 2020"
+  institution = "Zhejiang University"
 #  year = 2015-2020
 
 
