@@ -9,7 +9,7 @@ authors = ["admin"]
 superuser = true
 
 # Role/position
-role = "Ph.D Student"
+role = "Ph.D. Student"
 
 # Organizations/Affiliations
 #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
@@ -32,19 +32,20 @@ interests = [
 # Set this to `[]` or comment out if you are not using People widget.
 
 # List qualifications (such as academic degrees)
-#[[education.courses]]
-#  course = "Ph.D in Computer Science"
-#  institution = "University of Southern California"
+[[education.courses]]
+  course = "Ph.D. in Computer Science"
+  institution = "University of Southern California"
+  year = 2021
 
 [[education.courses]]
-  course = "B.Sc in Computer Science"
+  course = "B.Sc. in Computer Science"
   institution = "Simon Fraser University"
-  year = 2020
+  year = 2017 - 2020
 
 [[education.courses]]
   course = "B.Eng in Computer Science"
   institution = "Zhejiang University"
-  year = 2020
+  year = 2015 - 2020
 
 
 # Social/Academic Networking
@@ -76,17 +77,17 @@ interests = [
 
 +++
 
-I am currently a Ph.D student at University of Southern California, co-advised by 
-<a href="https://robinjia.github.io/" target="_blank">Prof.Robin Jia</a> and 
-<a href="https://jessethomason.com/" target="_blank">Prof.Jesse Thomason</a>.
+I am currently a Ph.D. student at University of Southern California, co-advised by 
+<a href="https://robinjia.github.io/" target="_blank">Prof. Robin Jia</a> and 
+<a href="https://jessethomason.com/" target="_blank">Prof. Jesse Thomason</a>.
 My research interests mainly focus on natural language processing and machine learning.
 Previously, I worked with 
-<a href="https://viterbi-web.usc.edu/~feisha/" target="_blank">Prof.Fei Sha</a> 
+<a href="https://viterbi-web.usc.edu/~feisha/" target="_blank">Prof. Fei Sha</a> 
 on vision-language navigation.
 
 
 I finished my bachelor of computer science at Simon Fraser University and Zhejiang University through a Dual Degree Program. 
 During my undergraduate period, I worked with 
-<a href="https://www.cs.sfu.ca/~mori/" target="_blank">Prof.Greg Mori</a> and 
-<a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof.Oliver Schulte</a> 
+<a href="https://www.cs.sfu.ca/~mori/" target="_blank">Prof. Greg Mori</a> and 
+<a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof. Oliver Schulte</a> 
 on robotics and reinforcement learning.
