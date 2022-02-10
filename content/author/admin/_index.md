@@ -40,12 +40,12 @@ interests = [
 [[education.courses]]
   course = "B.Sc. in Computer Science"
   institution = "Simon Fraser University"
-  year = 2017
+  year = 2017-2020
 
 [[education.courses]]
   course = "B.Eng. in Computer Science"
   institution = "Zhejiang University"
-  year = 2015
+  year = 2015-2020
 
 
 # Social/Academic Networking
