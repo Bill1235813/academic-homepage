@@ -40,9 +40,9 @@ name = "CV"
 url = "files/Wang_Zhu_s_Resume_upload.pdf"
 weight = 70
 
-[[main]]
-name = "Deadlines"
-url = "https://aideadlin.es"
-weight = 100
+#[[main]]
+#name = "Deadlines"
+#url = "https://aideadlin.es"
+#weight = 100
 
 
