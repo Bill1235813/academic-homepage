@@ -33,7 +33,7 @@ interests = [
 
 # List qualifications (such as academic degrees)
 [[education.courses]]
-  course = "Ph.D. in Computer Science, 2021 - "
+  course = "Ph.D. in Computer Science, 2021 - Now"
   institution = "University of Southern California"
 #  year = 2021
 
