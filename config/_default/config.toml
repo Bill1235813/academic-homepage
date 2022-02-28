@@ -44,7 +44,7 @@ preserveTaxonomyNames = true
 
 [outputs]
   home = [ "HTML", "CSS", "RSS", "JSON" ]
-  section = [ "HTML", "RSS" ]
+  section = [ "HTML", "CSS", "RSS", "JSON" ]
 
 # Configure BlackFriday Markdown rendering.
 #   See: https://gohugo.io/getting-started/configuration/#configure-blackfriday
