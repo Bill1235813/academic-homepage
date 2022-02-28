@@ -59,14 +59,19 @@ interests = [
   link = "https://scholar.google.com/citations?user=dMkqNF8AAAAJ&hl=en"
 
 [[social]]
+  icon = "github"
+  icon_pack = "fab"
+  link = "https://github.com/Bill1235813"
+
+[[social]]
   icon = "twitter"
   icon_pack = "fab"
   link= "https://twitter.com/BillJohn1235813"
 
 [[social]]
-  icon = "github"
+  icon = "linkedin"
   icon_pack = "fab"
-  link = "https://github.com/Bill1235813"
+  link= "https://www.linkedin.com/in/wang-zhu-398669161/"
   
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
