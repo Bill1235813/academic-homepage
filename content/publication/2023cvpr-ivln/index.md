@@ -1,6 +1,6 @@
 +++
 title = "Iterative Vision-and-Language Navigation"
-date = 2022-10-06T00:00:00
+date = 2023-03-02T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["Jacob Krantz*", "Shurjo Banerjee*", "__**Wang Zhu**__", "Jason Corso", "Peter Anderson", "Stefan Lee", "Jesse Thomason"]
@@ -17,9 +17,9 @@ authors = ["Jacob Krantz*", "Shurjo Banerjee*", "__**Wang Zhu**__", "Jason Corso
 publication_types = ["3"]
 
 # Publication name and optional abbreviated version.
-publication = "arXiv, 2022"
+publication = "CVPR, 2023"
 publication_short = ""
-publication_link = "https://arxiv.org/"
+publication_link = "https://cvpr2023.thecvf.com/"
 
 # Abstract.
 abstract = ""
