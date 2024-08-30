@@ -1,9 +1,9 @@
 +++
-title = "Iterative Vision-and-Language Navigation"
-date = 2023-03-02T00:00:00
+title = "Chain-of-Questions Training with Latent Answers for Robust Multistep Question Answering"
+date = 2023-10-02T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Jacob Krantz*", "Shurjo Banerjee*", "__**Wang Zhu**__", "Jason Corso", "Peter Anderson", "Stefan Lee", "Jesse Thomason"]
+authors = ["__**Wang Zhu**__", "Jesse Thomason", "Robin Jia"]
 
 # Publication type.
 # Legend:
@@ -17,9 +17,9 @@ authors = ["Jacob Krantz*", "Shurjo Banerjee*", "__**Wang Zhu**__", "Jason Corso
 publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
-publication = "CVPR, 2023"
+publication = "EMNLP, 2023"
 publication_short = ""
-publication_link = "https://cvpr2023.thecvf.com/"
+publication_link = "https://2023.emnlp.org/"
 
 # Abstract.
 abstract = ""
@@ -54,14 +54,14 @@ projects = []
 slides = ""
 
 # Links (optional).
-url_pdf = "https://arxiv.org/pdf/2210.03087.pdf"
+url_pdf = "https://aclanthology.org/2023.emnlp-main.547.pdf"
 url_preprint = ""
-url_code = "https://github.com/Bill1235813/IVLN"
+url_code = "https://github.com/Bill1235813/QDMR_COQ"
 url_dataset = ""
-url_project = "https://jacobkrantz.github.io/ivln"
+url_project = ""
 url_slides = ""
 url_video = ""
-url_poster = ""
+url_poster = "https://docs.google.com/presentation/d/1RxUtbJHKY53FE5rNwHtB5z0WHw3FaoIZZ3dzz603NSw/edit?usp=sharing"
 url_source = ""
 
 # Custom links (optional).

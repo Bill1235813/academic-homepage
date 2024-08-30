@@ -1,9 +1,9 @@
 +++
-title = "Iterative Vision-and-Language Navigation"
-date = 2023-03-02T00:00:00
+title = "VLN Pretraining Still Works with Nonsensical or Irrelevant Instructions"
+date = 2023-08-04T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Jacob Krantz*", "Shurjo Banerjee*", "__**Wang Zhu**__", "Jason Corso", "Peter Anderson", "Stefan Lee", "Jesse Thomason"]
+authors = ["__**Wang Zhu**__", "Ishika Singh*", "Yuan Huang*", "Robin Jia", "Jesse Thomason"]
 
 # Publication type.
 # Legend:
@@ -14,12 +14,12 @@ authors = ["Jacob Krantz*", "Shurjo Banerjee*", "__**Wang Zhu**__", "Jason Corso
 # 4 = Report
 # 5 = Book
 # 6 = Book section
-publication_types = ["1"]
+publication_types = ["3"]
 
 # Publication name and optional abbreviated version.
-publication = "CVPR, 2023"
+publication = "O-DRUM@CVPR, 2023"
 publication_short = ""
-publication_link = "https://cvpr2023.thecvf.com/"
+publication_link = "https://asu-apg.github.io/odrum/"
 
 # Abstract.
 abstract = ""
@@ -54,11 +54,11 @@ projects = []
 slides = ""
 
 # Links (optional).
-url_pdf = "https://arxiv.org/pdf/2210.03087.pdf"
+url_pdf = "https://arxiv.org/pdf/2311.17280"
 url_preprint = ""
-url_code = "https://github.com/Bill1235813/IVLN"
+url_code = ""
 url_dataset = ""
-url_project = "https://jacobkrantz.github.io/ivln"
+url_project = ""
 url_slides = ""
 url_video = ""
 url_poster = ""

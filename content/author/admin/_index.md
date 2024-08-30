@@ -33,7 +33,7 @@ interests = [
 
 # List qualifications (such as academic degrees)
 [[education.courses]]
-  course = "Ph.D. in Computer Science, 2021"
+  course = "Ph.D. in Computer Science, 2021 - "
   institution = "University of Southern California"
 #  year = 2021
 
@@ -82,19 +82,19 @@ interests = [
 
 +++
 
-I am currently a Ph.D. student at University of Southern California, co-advised by 
+I am currently a 4-th year Ph.D. candidate at University of Southern California, co-advised by 
 <a href="https://robinjia.github.io/" target="_blank">Prof. Robin Jia</a> and 
 <a href="https://jessethomason.com/" target="_blank">Prof. Jesse Thomason</a>.
-My research interests mainly focus on natural language processing and machine learning.
+My research interests mainly focus on natural language processing and neuro-symbolic methods.
 Previously, I worked with 
 <a href="https://viterbi-web.usc.edu/~feisha/" target="_blank">Prof. Fei Sha</a> 
 on vision-language navigation and language pretrained models.
 
 
 I finished my bachelor of computer science at Simon Fraser University and Zhejiang University through a Dual Degree Program. 
-During my undergraduate period, I worked with 
+During my undergraduate time, I worked with 
 <a href="https://www.cs.sfu.ca/~mori/" target="_blank">Prof. Greg Mori</a> and 
 <a href="https://www.cs.sfu.ca/~oschulte/" target="_blank">Prof. Oliver Schulte</a> 
 on robotics and reinforcement learning.
 
-Here is my latest <a href="https://billzhu.me/files/Wang_Zhu_s_Resume_upload.pdf" target="_blank">Curriculum Vitae</a>.
+Here is my latest <a href="https://billzhu.me/files/Bill_CV.pdf" target="_blank">Curriculum Vitae</a>.

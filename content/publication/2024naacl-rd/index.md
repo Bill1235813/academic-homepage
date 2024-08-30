@@ -1,9 +1,9 @@
 +++
-title = "Iterative Vision-and-Language Navigation"
-date = 2023-03-02T00:00:00
+title = "Efficient End-to-End Visual Document Understanding with Rationale Distillation"
+date = 2024-03-02T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Jacob Krantz*", "Shurjo Banerjee*", "__**Wang Zhu**__", "Jason Corso", "Peter Anderson", "Stefan Lee", "Jesse Thomason"]
+authors = ["__**Wang Zhu**__", "Alekh Agarwal", "Mandar Joshi", "Robin Jia", "Jesse Thomason", "Kristina Toutanova"]
 
 # Publication type.
 # Legend:
@@ -17,9 +17,9 @@ authors = ["Jacob Krantz*", "Shurjo Banerjee*", "__**Wang Zhu**__", "Jason Corso
 publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
-publication = "CVPR, 2023"
+publication = "NAACL, 2024"
 publication_short = ""
-publication_link = "https://cvpr2023.thecvf.com/"
+publication_link = "https://2024.naacl.org/"
 
 # Abstract.
 abstract = ""
@@ -54,14 +54,14 @@ projects = []
 slides = ""
 
 # Links (optional).
-url_pdf = "https://arxiv.org/pdf/2210.03087.pdf"
+url_pdf = "https://aclanthology.org/2024.naacl-long.465.pdf"
 url_preprint = ""
-url_code = "https://github.com/Bill1235813/IVLN"
+url_code = ""
 url_dataset = ""
-url_project = "https://jacobkrantz.github.io/ivln"
-url_slides = ""
+url_project = "https://rationaledistillation.github.io/"
+url_slides = "https://docs.google.com/presentation/d/1EHVq8OaQiZUNEGdHQrV-PVAheys89C2U/edit#slide=id.p1"
 url_video = ""
-url_poster = ""
+url_poster = "https://docs.google.com/presentation/d/1agIFPjibpGzzKgT0qNTGRRk3IbFh-PifNJdfcvjXy8M/edit?usp=sharing"
 url_source = ""
 
 # Custom links (optional).
