@@ -1,6 +1,6 @@
 +++
 title = "Language Models can Infer Action Semantics for Classical Planners from Environment Feedback"
-date = 2023-10-02T00:00:00
+date = 2024-06-02T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["__**Wang Zhu**__", "Ishika Singh", "Jesse Thomason", "Robin Jia"]
