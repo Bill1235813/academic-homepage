@@ -355,7 +355,6 @@ const publications = [
     authors: ["Ming Li", "Jike Zhong", "Shitian Zhao", "Yuxiang Lai", "Haoquan Zhang",
               ME, "Kaipeng Zhang"],
     venue: "NeurIPS, 2025",
-    award: "Spotlight (Top 3.2%)",
     selected: true,
     project_types: ["eval"],
     domains: ["multimodal"],
