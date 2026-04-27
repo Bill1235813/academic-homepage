@@ -1,0 +1,415 @@
+/* ------------------------------------------------------------------
+   Wang Bill Zhu — personal site
+   A single, deliberately simple stylesheet. No frameworks.
+   ------------------------------------------------------------------ */
+
+:root {
+  --bg:        #fbfaf6;
+  --surface:   #ffffff;
+  --ink:       #1f2024;
+  --ink-soft:  #4b4d55;
+  --ink-mute:  #7a7c84;
+  --rule:      #e7e3d8;
+  --accent:    #8a3324;          /* warm crimson */
+  --accent-soft: #c87a6b;
+  --tag-bg:    #f1ede2;
+  --tag-ink:   #5a4634;
+  --max-width: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Source Serif 4", "Source Serif Pro", "Iowan Old Style",
+               "Apple Garamond", Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a:hover { border-bottom-color: var(--accent); }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 56px 28px 80px;
+}
+
+/* ---------- Hero / header ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.portrait img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 8px 28px rgba(50,40,30,0.10);
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.socials a {
+  border-bottom: none;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.12s ease, filter 0.15s ease;
+}
+.socials a:hover { transform: translateY(-1px); filter: brightness(1.05); border-bottom: none; }
+
+/* Each platform gets its canonical brand color so the row reads like a
+   row of recognizable logos rather than uniform grey glyphs. */
+.socials .s-email    { color: #d44638; }   /* Gmail red          */
+.socials .s-cv       { color: #2a5d6e; }   /* document teal      */
+.socials .s-scholar  { color: #4285f4; }   /* Google blue        */
+.socials .s-github   { color: #181717; }   /* GitHub near-black  */
+.socials .s-x        { color: #000000; }   /* X / Twitter black  */
+.socials .s-linkedin { color: #0a66c2; }   /* LinkedIn blue      */
+
+.intro h1 {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 2.1rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.2rem;
+}
+.intro .role {
+  margin: 0 0 1rem;
+  color: var(--ink-mute);
+  font-size: 1.02rem;
+  font-style: italic;
+}
+.intro p { margin: 0 0 0.9rem; color: var(--ink-soft); }
+.intro ul.research-directions {
+  margin: -0.4rem 0 0.9rem;
+  padding-left: 1.25rem;
+  color: var(--ink-soft);
+}
+.intro ul.research-directions li { margin-bottom: 0.4rem; }
+
+/* ---------- Section structure ---------- */
+
+section { margin-top: 64px; }
+
+h2.section-title {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.55rem;
+  color: var(--ink);
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+/* A short coloured underline sits on top of the thin grey rule, so each
+   section heading reads as the start of a clearly demarcated block. */
+h2.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 64px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ---------- News ---------- */
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.news-list li {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 18px;
+  align-items: baseline;
+}
+.news-date {
+  color: var(--ink-mute);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+.news-body { color: var(--ink-soft); }
+.news-body strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- Publications ---------- */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  flex-wrap: wrap;
+}
+.tab {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font: inherit;
+  font-size: 0.98rem;
+  color: var(--ink-mute);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.tab:hover { color: var(--ink); }
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Sub-tab chip row inside taxonomy views ---------------------------- */
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 1.4rem;
+}
+.chip {
+  appearance: none;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 0.86rem;
+  padding: 5px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.chip:hover { color: var(--accent); border-color: var(--accent-soft); }
+.chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.pub-empty {
+  color: var(--ink-mute);
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+/* Category labels (when "All" is selected and groups appear) ------- */
+/* Visually distinct from paper titles: small caps, sans-serif feel,
+   colored block to the left, sits in its own row.                    */
+.pub-group { margin-top: 1.6rem; }
+.pub-group:first-child { margin-top: 0; }
+.pub-group-title {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+               Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+  padding: 0.35rem 0.8rem;
+  display: inline-block;
+  background: var(--tag-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+}
+.pub-group:first-child .pub-group-title { margin-top: 0; }
+
+.pub-list { list-style: none; padding: 0; margin: 0; }
+.pub-list li { padding: 0.7rem 0; border-bottom: 1px dashed var(--rule); }
+.pub-list li:last-child { border-bottom: none; }
+
+.pub-title { font-weight: 600; color: var(--ink); }
+.pub-authors { color: var(--ink-soft); font-size: 0.97rem; }
+.pub-authors .me {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.pub-venue { color: var(--ink-mute); font-style: italic; font-size: 0.95rem; }
+/* Award marker — bright magenta, plain text, no highlighter or box.
+   High contrast against the cream background and clearly distinct from
+   the page's crimson accent so spotlights jump out at a glance. */
+.pub-award {
+  display: inline-block;
+  margin-left: 0.4rem;
+  color: #db2777;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+.pub-award::before { content: "["; }
+.pub-award::after  { content: "]"; }
+
+/* News-item marker — plain bold text wrapped in brackets, no color or
+   uppercase tricks. Stays unobtrusive but signals "this is a tag." */
+.news-tag {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pub-actions {
+  margin-top: 0.3rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.pub-link, .bib-toggle {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 2px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  color: var(--ink-soft);
+  background: var(--surface);
+  cursor: pointer;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+}
+.pub-link:hover, .bib-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+}
+.bib-toggle.active {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.bib-block {
+  width: 100%;
+  margin: 0.45rem 0 0;
+  padding: 0.75rem 1rem;
+  background: #faf6ec;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent-soft);
+  border-radius: 4px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  overflow-x: auto;
+  white-space: pre;
+}
+.bib-block[hidden] { display: none; }
+
+.pub-tags {
+  margin-top: 0.35rem;
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+.pub-tag {
+  font-size: 0.78rem;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  color: var(--tag-ink);
+  font-style: normal;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  margin-top: 96px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-mute);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+/* ---------- Work-with-me page ---------- */
+
+.subpage h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0 0 0.4rem;
+}
+.subpage .lede {
+  color: var(--ink-mute);
+  font-style: italic;
+  margin: 0 0 2rem;
+}
+.callout {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 1.1rem 1.3rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.callout strong { color: var(--accent); }
+
+.subpage h2 {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 2rem 0 0.8rem;
+}
+.subpage ul { padding-left: 1.2rem; }
+.subpage li { margin-bottom: 0.5rem; color: var(--ink-soft); }
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--ink-mute);
+  border-bottom: none;
+}
+.back-link:hover { color: var(--accent); border-bottom: none; }
+
+/* ---------- Responsive ---------- */
+
+/* Tablet & narrow laptop — relax the wide hero into something less airy. */
+@media (max-width: 900px) {
+  .wrap { padding: 48px 24px 72px; }
+}
+
+/* Phones — collapse hero into a single centered column. */
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .wrap { padding: 36px 20px 60px; }
+  .hero { grid-template-columns: 1fr; gap: 24px; }
+  .portrait { display: flex; flex-direction: column; align-items: center; }
+  .portrait img { width: 160px; height: 160px; }
+  .socials { margin-top: 14px; gap: 14px; }
+  .news-list li { grid-template-columns: 1fr; gap: 2px; }
+  .news-date { font-size: 0.85rem; }
+  .intro h1 { font-size: 1.7rem; }
+  h2.section-title { font-size: 1.4rem; }
+  .bib-block { font-size: 0.72rem; }
+}
