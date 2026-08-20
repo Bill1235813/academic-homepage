@@ -1,0 +1,350 @@
+<meta charset="utf-8">
+<title>Classification · English 100</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --ground: #FAFAF8; --panel: #FFFFFF; --ink: #1F2328; --muted: #647084;
+  --border: #E4E4DE; --accent: #4F5BD5; --accent-soft: #EEEFFB;
+  --sat: #1E7F4F; --sat-soft: #E7F3EC; --dsat: #B3403A; --dsat-soft: #F9ECEB;
+  --chip: #F1F1EC; --user-bg: #F3F4FB; --shadow: 0 1px 3px rgba(31,35,40,.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #14161A; --panel: #1C1F26; --ink: #E8E8E4; --muted: #99A1B3;
+    --border: #2A2E37; --accent: #8891F0; --accent-soft: #262A45;
+    --sat: #4CC38A; --sat-soft: #1B2E25; --dsat: #E5736C; --dsat-soft: #362022;
+    --chip: #242832; --user-bg: #222636; --shadow: 0 1px 3px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #14161A; --panel: #1C1F26; --ink: #E8E8E4; --muted: #99A1B3;
+  --border: #2A2E37; --accent: #8891F0; --accent-soft: #262A45;
+  --sat: #4CC38A; --sat-soft: #1B2E25; --dsat: #E5736C; --dsat-soft: #362022;
+  --chip: #242832; --user-bg: #222636; --shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font: 14px/1.55 "IBM Plex Sans", system-ui, sans-serif;
+}
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+header {
+  display: flex; align-items: center; gap: 16px; padding: 12px 20px;
+  background: var(--panel); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 5;
+}
+header h1 { font-size: 16px; font-weight: 600; margin: 0; white-space: nowrap; }
+header .sub { color: var(--muted); font-size: 12px; white-space: nowrap; }
+header a { color: var(--accent); font-size: 13px; text-decoration: none; white-space: nowrap; }
+header a:hover { text-decoration: underline; }
+#search {
+  flex: 1; max-width: 420px; padding: 7px 12px; border: 1px solid var(--border);
+  border-radius: 6px; background: var(--ground); color: var(--ink); font: inherit;
+}
+#search:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+#count { margin-left: auto; color: var(--muted); font-size: 13px; }
+#count b { color: var(--ink); }
+
+.wrap { display: flex; min-height: calc(100vh - 54px); }
+aside {
+  width: 268px; flex-shrink: 0; padding: 16px; border-right: 1px solid var(--border);
+  background: var(--panel);
+}
+.group { margin-bottom: 18px; }
+.group h2 {
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 8px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 5px; max-height: 180px; overflow-y: auto; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px;
+  border: 1px solid var(--border); border-radius: 999px; background: var(--chip);
+  color: var(--ink); font-size: 12px; cursor: pointer; user-select: none;
+}
+.chip .n { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--muted); }
+.chip:hover { border-color: var(--accent); }
+.chip.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.chip.on .n { color: var(--accent); }
+.chip.sat.on { background: var(--sat-soft); border-color: var(--sat); color: var(--sat); }
+.chip.sat.on .n { color: var(--sat); }
+.chip.dsat.on { background: var(--dsat-soft); border-color: var(--dsat); color: var(--dsat); }
+.chip.dsat.on .n { color: var(--dsat); }
+.chip.zero { opacity: .4; cursor: default; }
+.chip.v1, .tag.v1 { border-style: dashed; }
+#clear {
+  width: 100%; padding: 6px; margin-bottom: 14px; border: 1px solid var(--border);
+  border-radius: 6px; background: none; color: var(--muted); font: inherit;
+  font-size: 12px; cursor: pointer;
+}
+#clear:hover { color: var(--dsat); border-color: var(--dsat); }
+
+main { flex: 1; padding: 20px; min-width: 0; }
+.card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+  padding: 14px 16px; margin-bottom: 10px; cursor: pointer; box-shadow: var(--shadow);
+}
+.card:hover { border-color: var(--accent); }
+.card .meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.card .snippet { color: var(--ink); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.card .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.tag {
+  padding: 1px 8px; border-radius: 999px; font-size: 11px; background: var(--chip);
+  color: var(--muted); border: 1px solid var(--border);
+}
+.tag.sat { background: var(--sat-soft); color: var(--sat); border-color: transparent; }
+.tag.dsat { background: var(--dsat-soft); color: var(--dsat); border-color: transparent; }
+.tag.sat.v1 { background: none; color: var(--sat); border-color: var(--sat); }
+.tag.dsat.v1 { background: none; color: var(--dsat); border-color: var(--dsat); }
+.tag.state { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+
+.pager { display: flex; align-items: center; gap: 12px; justify-content: center; padding: 16px; color: var(--muted); }
+.pager button, #back, .nav button {
+  padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px;
+  background: var(--panel); color: var(--ink); font: inherit; font-size: 13px; cursor: pointer;
+}
+.pager button:hover, #back:hover, .nav button:hover { border-color: var(--accent); }
+.pager button:disabled, .nav button:disabled { opacity: .4; cursor: default; }
+
+.detail-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.detail-head .meta { color: var(--muted); font-size: 12px; }
+.nav { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.msg { border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; border: 1px solid var(--border); }
+.msg.user { background: var(--user-bg); }
+.msg.assistant { background: var(--panel); }
+.msg .role {
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 4px;
+}
+.msg.user .role { color: var(--accent); }
+.msg .body { white-space: pre-wrap; overflow-wrap: break-word; max-width: 88ch; }
+.annot {
+  border-left: 3px solid var(--accent); margin: -2px 0 12px 14px; padding: 8px 14px;
+  font-size: 12.5px; color: var(--muted); background: var(--panel);
+  border-radius: 0 8px 8px 0; border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.annot .summary { font-style: italic; margin-bottom: 6px; }
+.annot .tags { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.annot .rowlabel {
+  font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin-right: 2px; min-width: 52px;
+}
+.annot .row + .row { margin-top: 6px; }
+@media (max-width: 760px) { .wrap { flex-direction: column; } aside { width: 100%; border-right: none; border-bottom: 1px solid var(--border); } }
+</style>
+
+<header>
+  <h1>Classification</h1>
+  <span class="sub">first 100 English · satisfactory / dissatisfactory / neural vs v1 labels</span>
+  <a href="index.html">← Full 3k reviewer</a>
+  <input id="search" type="search" placeholder="Search conversations &amp; summaries…">
+  <span id="count"></span>
+</header>
+<div class="wrap">
+  <aside>
+    <button id="clear">Clear all filters</button>
+    <div id="filters"></div>
+  </aside>
+  <main id="main"></main>
+</div>
+
+<script src="classification_data.js"></script>
+<script>
+// The classification template outputs, per turn from T-2 on:
+//   satisfactory_label: satisfactory | dissatisfactory | neural
+// The v1 run supplies the original WildFeedback fields for comparison.
+const GROUPS = [
+  { key: "language", name: "Language" },
+  { key: "judgment", name: "Classification", src: "extreme", field: "satisfactory_label" },
+  { key: "satisfaction_v1", name: "Satisfaction (v1)", cls: "sat v1", src: "v1", field: "satisfaction" },
+  { key: "dissatisfaction_v1", name: "Dissatisfaction (v1)", cls: "dsat v1", src: "v1", field: "dissatisfaction" },
+  { key: "preceding_topical_relation", name: "Topical relation (v1)", src: "v1", field: "preceding_topical_relation" },
+  { key: "domain", name: "Domain (v1)", src: "v1", field: "domain" },
+  { key: "intent", name: "Intent (v1)", src: "v1", field: "intent" },
+  { key: "state", name: "State (v1)", src: "v1", field: "state" },
+];
+
+const asList = (v) => (Array.isArray(v) ? v : v == null ? [] : [v]);
+const cleanIntent = (v) => String(v).replace(/^(INTENT:)+/, "");
+// chips for the extreme judgments are colored by their value, not their group
+const valueCls = (v) =>
+  v === "satisfactory" ? "sat" : v === "dissatisfactory" ? "dsat" : "";
+
+// index turn labels by their "T-n" key so extreme entries (starting at T-2)
+// line up with the right user turn regardless of position in the list
+const byTurnKey = (labels) => {
+  const map = {};
+  for (const entry of labels || [])
+    for (const [key, lab] of Object.entries(entry)) map[key] = lab;
+  return map;
+};
+
+const data = window.VIEWER_DATA.map((ex) => {
+  const extremeMap = byTurnKey(ex.labels);
+  const v1Map = byTurnKey(ex.labels_v1);
+  const tags = { language: [ex.language] };
+  for (const g of GROUPS.slice(1)) {
+    const source = g.src === "extreme" ? extremeMap : v1Map;
+    const values = Object.values(source).flatMap((lab) =>
+      asList(lab[g.field]).map((v) => (g.field === "intent" ? cleanIntent(v) : String(v))));
+    tags[g.key] = [...new Set(values)];
+  }
+  const text = (ex.conversation.map((m) => m.content).join(" ") + " " +
+    Object.values(v1Map).map((lab) => lab.summary || "").join(" ")).toLowerCase();
+  return { ...ex, extremeMap, v1Map, tags, text };
+});
+
+const active = Object.fromEntries(GROUPS.map((g) => [g.key, new Set()]));
+let query = "", page = 0, selected = null;
+const PAGE_SIZE = 50;
+
+const matches = (ex, skipKey) =>
+  (!query || ex.text.includes(query)) &&
+  GROUPS.every(({ key }) => key === skipKey || active[key].size === 0 ||
+    ex.tags[key].some((t) => active[key].has(t)));
+
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+function renderFilters() {
+  const box = document.getElementById("filters");
+  box.innerHTML = "";
+  for (const g of GROUPS) {
+    const counts = {};
+    for (const ex of data) if (matches(ex, g.key))
+      for (const t of ex.tags[g.key]) counts[t] = (counts[t] || 0) + 1;
+    const values = [...new Set([...Object.keys(counts), ...active[g.key]])]
+      .sort((a, b) => (counts[b] || 0) - (counts[a] || 0));
+    const div = document.createElement("div");
+    div.className = "group";
+    div.innerHTML = `<h2>${g.name}</h2><div class="chips"></div>`;
+    const chips = div.querySelector(".chips");
+    for (const v of values) {
+      const cls = g.cls || (g.src === "extreme" ? valueCls(v) : "");
+      const btn = document.createElement("button");
+      btn.className = "chip" + (cls ? " " + cls : "") +
+        (active[g.key].has(v) ? " on" : "") + (counts[v] ? "" : " zero");
+      btn.innerHTML = `${esc(v)} <span class="n">${counts[v] || 0}</span>`;
+      btn.onclick = () => {
+        active[g.key].has(v) ? active[g.key].delete(v) : active[g.key].add(v);
+        page = 0; render();
+      };
+      chips.appendChild(btn);
+    }
+    box.appendChild(div);
+  }
+}
+
+const tagHtml = (value, cls) => `<span class="tag ${cls}">${esc(value)}</span>`;
+
+function cardTags(ex) {
+  const parts = [];
+  for (const v of ex.tags.judgment) parts.push(tagHtml(v, valueCls(v)));
+  for (const v of ex.tags.satisfaction_v1) if (v !== "N/A") parts.push(tagHtml(v, "sat v1"));
+  for (const v of ex.tags.dissatisfaction_v1) if (v !== "N/A") parts.push(tagHtml(v, "dsat v1"));
+  for (const v of ex.tags.state) parts.push(tagHtml(v, "state"));
+  return parts.slice(0, 14).join("");
+}
+
+function renderList(rows) {
+  const main = document.getElementById("main");
+  const start = page * PAGE_SIZE, pageRows = rows.slice(start, start + PAGE_SIZE);
+  main.innerHTML = "";
+  for (const ex of pageRows) {
+    const firstUser = ex.conversation.find((m) => m.role === "user");
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML =
+      `<div class="meta"><span class="mono">${ex.hash.slice(0, 10)}</span>` +
+      `<span>${esc(ex.model)}</span><span>${ex.conversation.length} messages</span></div>` +
+      `<div class="snippet">${esc(firstUser ? firstUser.content.slice(0, 300) : "")}</div>` +
+      `<div class="tags">${cardTags(ex)}</div>`;
+    card.onclick = () => { selected = rows.indexOf(ex); render(); };
+    main.appendChild(card);
+  }
+  const pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+  const pager = document.createElement("div");
+  pager.className = "pager";
+  pager.innerHTML =
+    `<button id="pp" ${page === 0 ? "disabled" : ""}>← Prev</button>` +
+    `<span class="mono">${page + 1} / ${pages}</span>` +
+    `<button id="pn" ${page >= pages - 1 ? "disabled" : ""}>Next →</button>`;
+  main.appendChild(pager);
+  pager.querySelector("#pp").onclick = () => { page--; render(); };
+  pager.querySelector("#pn").onclick = () => { page++; render(); };
+}
+
+function renderDetail(rows) {
+  const ex = rows[selected];
+  const main = document.getElementById("main");
+  main.innerHTML = "";
+  const head = document.createElement("div");
+  head.className = "detail-head";
+  head.innerHTML =
+    `<button id="back">← All examples</button>` +
+    `<span class="meta"><span class="mono">${ex.hash}</span> · ${esc(ex.model)} · ${esc(ex.language)}</span>` +
+    `<span class="nav"><button id="np" ${selected === 0 ? "disabled" : ""}>← Prev</button>` +
+    `<span class="mono">${selected + 1} / ${rows.length}</span>` +
+    `<button id="nn" ${selected >= rows.length - 1 ? "disabled" : ""}>Next →</button></span>`;
+  main.appendChild(head);
+  head.querySelector("#back").onclick = () => { selected = null; render(); };
+  head.querySelector("#np").onclick = () => { selected--; render(); };
+  head.querySelector("#nn").onclick = () => { selected++; render(); };
+
+  let userTurn = 0;
+  for (const m of ex.conversation) {
+    const msg = document.createElement("div");
+    msg.className = "msg " + (m.role === "user" ? "user" : "assistant");
+    msg.innerHTML = `<div class="role">${m.role === "user" ? "User · T" + (userTurn + 1) : "Assistant"}</div>` +
+      `<div class="body">${esc(m.content)}</div>`;
+    main.appendChild(msg);
+    if (m.role === "user") {
+      userTurn++;
+      const turnKey = "T-" + userTurn;
+      const extreme = ex.extremeMap[turnKey], v1 = ex.v1Map[turnKey];
+      if (extreme || v1) {
+        const rowsHtml = [];
+        if (extreme) {
+          const judgment = asList(extreme.satisfactory_label).map((v) => tagHtml(v, valueCls(v)));
+          rowsHtml.push(`<div class="row tags"><span class="rowlabel">class</span>${judgment.join("")}</div>`);
+        }
+        if (v1) {
+          const sat = asList(v1.satisfaction).filter((v) => v !== "N/A").map((v) => tagHtml(v, "sat v1"));
+          const dsat = asList(v1.dissatisfaction).filter((v) => v !== "N/A").map((v) => tagHtml(v, "dsat v1"));
+          const other = [...asList(v1.state), ...asList(v1.intent).map(cleanIntent), ...asList(v1.domain)]
+            .filter((v) => v && v !== "N/A")
+            .map((v) => tagHtml(v, asList(v1.state).includes(v) ? "state" : ""));
+          rowsHtml.push(`<div class="row tags"><span class="rowlabel">v1</span>` +
+            (sat.length + dsat.length ? sat.join("") + dsat.join("") : `<span class="tag v1">no signal</span>`) +
+            other.join("") + `</div>`);
+        }
+        const annot = document.createElement("div");
+        annot.className = "annot";
+        annot.innerHTML =
+          `<div class="summary">${esc((v1 && v1.summary) || "")}</div>` + rowsHtml.join("");
+        main.appendChild(annot);
+      }
+    }
+  }
+}
+
+function render() {
+  const rows = data.filter((ex) => matches(ex));
+  document.getElementById("count").innerHTML =
+    `<b>${rows.length}</b> / ${data.length} conversations`;
+  renderFilters();
+  if (selected != null && selected < rows.length) renderDetail(rows);
+  else { selected = null; renderList(rows); }
+  window.scrollTo(0, 0);
+}
+
+document.getElementById("search").oninput = (e) => {
+  query = e.target.value.toLowerCase(); page = 0; selected = null; render();
+};
+document.getElementById("clear").onclick = () => {
+  for (const g of GROUPS) active[g.key].clear();
+  query = ""; document.getElementById("search").value = ""; page = 0; render();
+};
+render();
+</script>
