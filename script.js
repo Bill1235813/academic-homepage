@@ -109,6 +109,9 @@ const AUTHOR_PAGES = {
   "Linxin Song":           "https://linxins.net/",
   "Yuqing Yang":           "https://ayyyq.github.io/",
   "Xingjian Dong":         "https://dannydxj.github.io/",
+  "Ziyi Liu":              "https://liuziyi219.github.io/",
+  "Nathanael Fast":        "https://www.nathanaelfast.com/",
+  "Ravi Iyer":             "https://www.marshall.usc.edu/people/ravi-iyer",
   "Jacob Choi":            "https://www.linkedin.com/in/choi-jacob/",
   "Sadra Sabouri":         "https://sadrasabouri.github.io/",
   "Qiutong Tony Yi":       "https://www.linkedin.com/in/qiutong-yi-249005250/",
@@ -138,6 +141,24 @@ const ME_EQ = "__me_eq__";
 
 const publications = [
   // 2026 preprints ------------------------------------------------------
+  {
+    id: "eudaimonia",
+    year: 2026,
+    title: "EUDAIMONIA: Evaluating Undesirable Dynamics in AI",
+    authors: ["Jun Rui Huang*", ME_EQ, "Ziyi Liu", "Nathanael Fast",
+              "Ravi Iyer", "Robin Jia"],
+    venue: "Preprint, 2026",
+    selected: true,
+    project_types: ["eval"],
+    domains: ["health"],
+    links: { paper: "https://arxiv.org/abs/2605.30654" },
+    bib: String.raw`@article{huang-etal-2026-eudaimonia,
+  title={{EUDAIMONIA}: Evaluating Undesirable Dynamics in {AI}},
+  author={Huang, Jun Rui and Zhu, Wang Bill and Liu, Ziyi and Fast, Nathanael and Iyer, Ravi and Jia, Robin},
+  journal={arXiv preprint arXiv:2605.30654},
+  year={2026}
+}`,
+    },
   {
     id: "pddl-mind",
     year: 2026,
@@ -174,7 +195,6 @@ const publications = [
 }`,
     },
 
-  // 2026 ----------------------------------------------------------------
   {
     id: "precise-debug",
     year: 2026,
@@ -182,7 +202,7 @@ const publications = [
     authors: [ME_EQ, "Miaosen Chai*",
               "Shangshang Wang", "Yejia Liu", "Song Bian", "Honghua Dong",
               "Willie Neiswanger", "Robin Jia"],
-    venue: "Findings of ACL, 2026",
+    venue: "Preprint, 2026",
     selected: true,
     project_types: ["eval"],
     domains: ["coding"],
@@ -192,12 +212,52 @@ const publications = [
       code:  "https://github.com/Bill1235813/PDB",
       data:  "https://huggingface.co/Precise-Debugging-Benchmarking",
     },
-    bib: String.raw`@inproceedings{zhu-etal-2026-precise,
+    bib: String.raw`@article{zhu-etal-2026-precise,
   title={Precise Debugging Benchmark: Is Your Model Debugging or Regenerating?},
   author={Zhu, Wang Bill and Chai, Miaosen and Wang, Shangshang and Liu, Yejia and Bian, Song and Dong, Honghua and Neiswanger, Willie and Jia, Robin},
-  booktitle={Findings of the Association for Computational Linguistics: ACL 2026},
+  journal={arXiv preprint arXiv:2604.17338},
+  year={2026}
+}`,
+    },
+
+  // 2026 ----------------------------------------------------------------
+  {
+    id: "context-leak",
+    year: 2026,
+    title: "ContextLeak: Auditing Leakage in Private In-Context Learning Methods",
+    authors: ["Jacob Choi", "Shuying Cao", "Xingjian Dong",
+              "Amin Banayeeanzade", ME, "Robin Jia",
+              "Sai Praneeth Karimireddy"],
+    venue: "COLM, 2026",
+    selected: true,
+    project_types: ["verifiable-llm"],
+    domains: ["language"],
+    links: { paper: "https://arxiv.org/abs/2512.16059" },
+    bib: String.raw`@inproceedings{choi-etal-2026-contextleak,
+  title={{ContextLeak}: Auditing Leakage in Private In-Context Learning Methods},
+  author={Choi, Jacob and Cao, Shuying and Dong, Xingjian and Banayeeanzade, Amin and Zhu, Wang Bill and Jia, Robin and Karimireddy, Sai Praneeth},
+  booktitle={Conference on Language Modeling (COLM)},
   year={2026},
-  url={https://arxiv.org/abs/2604.17338}
+  url={https://arxiv.org/abs/2512.16059}
+}`,
+    },
+  {
+    id: "synth-prog-analyzers",
+    year: 2026,
+    title: "Synthesizing Complex Program Analyzers from Natural Language Questions",
+    authors: ["Amirmohammad Nazari", "Sadra Sabouri", ME, "Robin Jia",
+              "Souti Chattopadhyay", "Mukund Raghothaman"],
+    venue: "VL/HCC, 2026",
+    selected: true,
+    project_types: ["verifiable-llm"],
+    domains: ["coding"],
+    links: { paper: "https://arxiv.org/abs/2605.09304" },
+    bib: String.raw`@inproceedings{nazari-etal-2026-synthesizing,
+  title={Synthesizing Complex Program Analyzers from Natural Language Questions},
+  author={Nazari, Amirmohammad and Sabouri, Sadra and Zhu, Wang Bill and Jia, Robin and Chattopadhyay, Souti and Raghothaman, Mukund},
+  booktitle={IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)},
+  year={2026},
+  url={https://arxiv.org/abs/2605.09304}
 }`,
     },
   {
@@ -285,44 +345,6 @@ const publications = [
   booktitle={International Conference on Learning Representations (ICLR)},
   year={2026},
   url={https://arxiv.org/abs/2507.16746}
-}`,
-    },
-
-  // 2025 preprints ------------------------------------------------------
-  {
-    id: "context-leak",
-    year: 2025,
-    title: "ContextLeak: Auditing Leakage in Private In-Context Learning Methods",
-    authors: ["Jacob Choi", "Shuying Cao", "Xingjian Dong",
-              "Amin Banayeeanzade", ME, "Robin Jia",
-              "Sai Praneeth Karimireddy"],
-    venue: "Preprint, 2025",
-    selected: true,
-    project_types: ["verifiable-llm"],
-    domains: ["language"],
-    links: { paper: "https://arxiv.org/abs/2512.16059" },
-    bib: String.raw`@article{choi-etal-2025-contextleak,
-  title={{ContextLeak}: Auditing Leakage in Private In-Context Learning Methods},
-  author={Choi, Jacob and Cao, Shuying and Dong, Xingjian and Banayeeanzade, Amin and Zhu, Wang Bill and Jia, Robin and Karimireddy, Sai Praneeth},
-  journal={arXiv preprint arXiv:2512.16059},
-  year={2025}
-}`,
-    },
-  {
-    id: "synth-prog-analyzers",
-    year: 2025,
-    title: "Synthesizing Program Analyzers for Interactive Code Understanding",
-    authors: ["Amirmohammad Nazari", "Sadra Sabouri", ME, "Robin Jia",
-              "Souti Chattopadhyay", "Mukund Raghothaman"],
-    venue: "Preprint, 2025",
-    selected: true,
-    project_types: ["verifiable-llm"],
-    domains: ["coding"],
-    links: {},
-    bib: String.raw`@misc{nazari-etal-2025-synthesizing,
-  title={Synthesizing Program Analyzers for Interactive Code Understanding},
-  author={Nazari, Amirmohammad and Sabouri, Sadra and Zhu, Wang Bill and Jia, Robin and Chattopadhyay, Souti and Raghothaman, Mukund},
-  year={2025}
 }`,
     },
 
