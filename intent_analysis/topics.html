@@ -76,11 +76,28 @@ main { flex: 1; padding: 18px 22px; max-width: 1060px; }
 #more { display: block; margin: 10px auto 30px; padding: 8px 22px; border: 1px solid var(--border);
         border-radius: 8px; background: var(--panel); color: var(--accent); font: inherit; cursor: pointer; }
 #more:hover { border-color: var(--accent); }
+.tabs { display: flex; gap: 6px; }
+.tab { padding: 6px 14px; border: 1px solid var(--border); border-radius: 8px;
+       background: var(--chip); color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
+.tab:hover { border-color: var(--accent); }
+.tab.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.prompt-panel { background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+                box-shadow: var(--shadow); margin-bottom: 20px; overflow: hidden; }
+.prompt-panel h2 { margin: 0; padding: 12px 16px; font-size: 14px; font-weight: 600;
+                   border-bottom: 1px solid var(--border); background: var(--accent-soft); color: var(--accent); }
+.prompt-panel .meta { padding: 8px 16px; color: var(--muted); font-size: 12.5px;
+                      border-bottom: 1px solid var(--border); }
+.prompt-panel pre { margin: 0; padding: 14px 16px; white-space: pre-wrap; overflow-wrap: anywhere;
+                    font: 12.5px/1.6 "IBM Plex Mono", ui-monospace, monospace; }
 </style>
 
 <header>
   <h1>Topic Explorer</h1>
   <span class="sub">ShareChat &amp; WildChat conversations with Qwen3.8 topic / impact labels</span>
+  <nav class="tabs">
+    <button class="tab on" data-view="conversations">Conversations</button>
+    <button class="tab" data-view="prompts">Prompts</button>
+  </nav>
   <input id="search" placeholder="Search conversation text…">
   <span id="count"><b>0</b> shown</span>
 </header>
@@ -93,7 +110,21 @@ main { flex: 1; padding: 18px 22px; max-width: 1060px; }
   <div class="group"><h2>Topic</h2><div class="chips" id="f-topic"></div></div>
   <div class="group"><h2>Impact scope</h2><div class="chips" id="f-impact"></div></div>
 </aside>
-<main><div id="cards"></div><button id="more">Show 50 more</button></main>
+<main>
+  <div id="conversations-view"><div id="cards"></div><button id="more">Show 50 more</button></div>
+  <div id="prompts-view" hidden>
+    <div class="prompt-panel">
+      <h2>Topic classification prompt (13 categories)</h2>
+      <div class="meta" id="topic-prompt-meta"></div>
+      <pre id="topic-prompt"></pre>
+    </div>
+    <div class="prompt-panel">
+      <h2>Impact scoping prompt (5 scopes, uses the assistant's responses)</h2>
+      <div class="meta" id="impact-prompt-meta"></div>
+      <pre id="impact-prompt"></pre>
+    </div>
+  </div>
+</main>
 </div>
 
 <script src="topics_data.js"></script>
@@ -182,6 +213,26 @@ document.getElementById("clear").onclick = () => {
   document.getElementById("search").value = "";
   shown = 50; render();
 };
+
+// ------- Prompts tab -------
+const PROMPTS = window.PROMPT_DATA || {};
+document.getElementById("topic-prompt").textContent = PROMPTS.topic || "(not embedded)";
+document.getElementById("impact-prompt").textContent = PROMPTS.impact || "(not embedded)";
+document.getElementById("topic-prompt-meta").textContent = PROMPTS.topic_meta || "";
+document.getElementById("impact-prompt-meta").textContent = PROMPTS.impact_meta || "";
+
+for (const tab of document.querySelectorAll(".tab")) {
+  tab.onclick = () => {
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("on"));
+    tab.classList.add("on");
+    const showPrompts = tab.dataset.view === "prompts";
+    document.getElementById("prompts-view").hidden = !showPrompts;
+    document.getElementById("conversations-view").hidden = showPrompts;
+    document.querySelector("aside").style.visibility = showPrompts ? "hidden" : "visible";
+    document.getElementById("search").style.visibility = showPrompts ? "hidden" : "visible";
+    document.getElementById("count").style.visibility = showPrompts ? "hidden" : "visible";
+  };
+}
 
 buildChips();
 render();
