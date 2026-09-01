@@ -1,0 +1,188 @@
+<meta charset="utf-8">
+<title>ShareChat / WildChat Topic Explorer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --ground: #FAFAF8; --panel: #FFFFFF; --ink: #1F2328; --muted: #647084;
+  --border: #E4E4DE; --accent: #4F5BD5; --accent-soft: #EEEFFB;
+  --sat: #1E7F4F; --sat-soft: #E7F3EC; --dsat: #B3403A; --dsat-soft: #F9ECEB;
+  --chip: #F1F1EC; --user-bg: #F3F4FB; --shadow: 0 1px 3px rgba(31,35,40,.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #14161A; --panel: #1C1F26; --ink: #E8E8E4; --muted: #99A1B3;
+    --border: #2A2E37; --accent: #8891F0; --accent-soft: #262A45;
+    --sat: #4CC38A; --sat-soft: #1B2E25; --dsat: #E5736C; --dsat-soft: #362022;
+    --chip: #242832; --user-bg: #222636; --shadow: 0 1px 3px rgba(0,0,0,.4);
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink);
+       font: 14px/1.55 "IBM Plex Sans", system-ui, sans-serif; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+header { display: flex; align-items: center; gap: 16px; padding: 12px 20px;
+         background: var(--panel); border-bottom: 1px solid var(--border);
+         position: sticky; top: 0; z-index: 5; }
+header h1 { font-size: 16px; font-weight: 600; margin: 0; white-space: nowrap; }
+header .sub { color: var(--muted); font-size: 12px; }
+#search { flex: 1; max-width: 420px; padding: 7px 12px; border: 1px solid var(--border);
+          border-radius: 6px; background: var(--ground); color: var(--ink); font: inherit; }
+#search:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+#count { margin-left: auto; color: var(--muted); font-size: 13px; }
+#count b { color: var(--ink); }
+.wrap { display: flex; min-height: calc(100vh - 54px); }
+aside { width: 268px; flex-shrink: 0; padding: 16px; border-right: 1px solid var(--border);
+        background: var(--panel); }
+.group { margin-bottom: 18px; }
+.group h2 { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+            color: var(--muted); margin: 0 0 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px;
+        border: 1px solid var(--border); border-radius: 999px; background: var(--chip);
+        color: var(--ink); font-size: 12px; cursor: pointer; user-select: none; }
+.chip .n { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--muted); }
+.chip:hover { border-color: var(--accent); }
+.chip.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.chip.on .n { color: var(--accent); }
+#clear { width: 100%; padding: 6px; margin-bottom: 14px; border: 1px solid var(--border);
+         border-radius: 6px; background: none; color: var(--muted); font: inherit;
+         font-size: 12px; cursor: pointer; }
+#clear:hover { color: var(--dsat); border-color: var(--dsat); }
+main { flex: 1; padding: 18px 22px; max-width: 1060px; }
+.card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+        box-shadow: var(--shadow); margin-bottom: 14px; overflow: hidden; }
+.card-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+             padding: 10px 14px; cursor: pointer; }
+.card-head:hover { background: var(--accent-soft); }
+.tag { padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 500;
+       background: var(--chip); color: var(--muted); }
+.tag.corpus { background: var(--accent-soft); color: var(--accent); }
+.tag.impact { background: var(--sat-soft); color: var(--sat); }
+.preview { color: var(--muted); font-size: 13px; flex-basis: 100%;
+           white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.body { display: none; border-top: 1px solid var(--border); padding: 12px 14px; }
+.card.open .body { display: block; }
+.msg { margin-bottom: 10px; padding: 9px 12px; border-radius: 8px; white-space: pre-wrap;
+       overflow-wrap: anywhere; }
+.msg.user { background: var(--user-bg); }
+.msg.llm { background: var(--ground); border: 1px solid var(--border); }
+.msg .role { font-size: 11px; font-weight: 600; letter-spacing: .06em;
+             text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+.reason { margin-top: 8px; padding: 9px 12px; border-left: 3px solid var(--accent);
+          background: var(--accent-soft); font-size: 13px; border-radius: 0 8px 8px 0; }
+.reason.impact { border-color: var(--sat); background: var(--sat-soft); }
+.reason b { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+#more { display: block; margin: 10px auto 30px; padding: 8px 22px; border: 1px solid var(--border);
+        border-radius: 8px; background: var(--panel); color: var(--accent); font: inherit; cursor: pointer; }
+#more:hover { border-color: var(--accent); }
+</style>
+
+<header>
+  <h1>Topic Explorer</h1>
+  <span class="sub">ShareChat &amp; WildChat conversations with Qwen3.8 topic / impact labels</span>
+  <input id="search" placeholder="Search conversation text…">
+  <span id="count"><b>0</b> shown</span>
+</header>
+
+<div class="wrap">
+<aside>
+  <button id="clear">Reset filters</button>
+  <div class="group"><h2>Corpus</h2><div class="chips" id="f-corpus"></div></div>
+  <div class="group"><h2>Platform</h2><div class="chips" id="f-model"></div></div>
+  <div class="group"><h2>Topic</h2><div class="chips" id="f-topic"></div></div>
+  <div class="group"><h2>Impact scope</h2><div class="chips" id="f-impact"></div></div>
+</aside>
+<main><div id="cards"></div><button id="more">Show 50 more</button></main>
+</div>
+
+<script src="topics_data.js"></script>
+<script>
+const DATA = window.TOPIC_DATA;
+const FIELDS = ["corpus", "model", "topic", "impact"];
+const active = { corpus: new Set(), model: new Set(), topic: new Set(), impact: new Set() };
+let shown = 50;
+
+function values(field) {
+  const counts = {};
+  for (const row of DATA) {
+    const value = row[field] || "—";
+    counts[value] = (counts[value] || 0) + 1;
+  }
+  return Object.entries(counts).sort((a, b) => b[1] - a[1]);
+}
+
+function buildChips() {
+  for (const field of FIELDS) {
+    const box = document.getElementById("f-" + field);
+    for (const [value, count] of values(field)) {
+      const chip = document.createElement("button");
+      chip.className = "chip";
+      chip.innerHTML = `${value} <span class="n">${count}</span>`;
+      chip.onclick = () => {
+        active[field].has(value) ? active[field].delete(value) : active[field].add(value);
+        chip.classList.toggle("on");
+        shown = 50; render();
+      };
+      box.appendChild(chip);
+    }
+  }
+}
+
+function matches(row, query) {
+  for (const field of FIELDS)
+    if (active[field].size && !active[field].has(row[field] || "—")) return false;
+  if (!query) return true;
+  return row.messages.some(m => m.content.toLowerCase().includes(query));
+}
+
+function escapeHtml(text) {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+}
+
+function card(row) {
+  const div = document.createElement("div");
+  div.className = "card";
+  const impactTag = row.impact ? `<span class="tag impact">${row.impact}</span>` : "";
+  const first = row.messages.find(m => m.role === "user") || row.messages[0];
+  div.innerHTML = `
+    <div class="card-head">
+      <span class="tag corpus">${row.corpus}</span>
+      <span class="tag">${row.model}</span>
+      <span class="tag">${row.topic}</span>${impactTag}
+      <span class="tag mono">${row.num_messages} msgs</span>
+      <span class="preview">${escapeHtml(first.content.slice(0, 180))}</span>
+    </div>
+    <div class="body">
+      ${row.messages.map(m => `<div class="msg ${m.role === "user" ? "user" : "llm"}">
+        <div class="role">${m.role === "user" ? "User" : "Assistant"}</div>${escapeHtml(m.content)}</div>`).join("")}
+      ${row.truncated ? `<div class="sub" style="color:var(--muted)">(conversation truncated for the viewer)</div>` : ""}
+      <div class="reason"><b>Topic — ${row.topic}:</b> ${escapeHtml(row.topic_reasoning || "")}</div>
+      ${row.impact ? `<div class="reason impact"><b>Impact — ${row.impact}:</b> ${escapeHtml(row.impact_reasoning || "")}</div>` : ""}
+    </div>`;
+  div.querySelector(".card-head").onclick = () => div.classList.toggle("open");
+  return div;
+}
+
+function render() {
+  const query = document.getElementById("search").value.trim().toLowerCase();
+  const rows = DATA.filter(row => matches(row, query));
+  const box = document.getElementById("cards");
+  box.innerHTML = "";
+  for (const row of rows.slice(0, shown)) box.appendChild(card(row));
+  document.getElementById("count").innerHTML = `<b>${rows.length}</b> shown`;
+  document.getElementById("more").style.display = rows.length > shown ? "block" : "none";
+}
+
+document.getElementById("search").oninput = () => { shown = 50; render(); };
+document.getElementById("more").onclick = () => { shown += 50; render(); };
+document.getElementById("clear").onclick = () => {
+  for (const field of FIELDS) active[field].clear();
+  document.querySelectorAll(".chip.on").forEach(chip => chip.classList.remove("on"));
+  document.getElementById("search").value = "";
+  shown = 50; render();
+};
+
+buildChips();
+render();
+</script>
