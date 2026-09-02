@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>ShareChat Emergency-Evacuation Explorer</title>
+<title>ShareChat Natural Disaster Evacuation Explorer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -99,8 +99,7 @@ main { flex: 1; padding: 18px 22px; max-width: 1060px; }
 </style>
 
 <header>
-  <h1>Evacuation Explorer</h1>
-  <span class="sub">ShareChat conversations flagged by the two-pass emergency-evacuation screen</span>
+  <h1>ShareChat Natural Disaster Evacuation Explorer</h1>
   <nav class="tabs">
     <button class="tab on" data-view="conversations">Conversations</button>
     <button class="tab" data-view="prompts">Prompts</button>
@@ -112,16 +111,9 @@ main { flex: 1; padding: 18px 22px; max-width: 1060px; }
 <div class="wrap">
 <aside>
   <button id="clear">Reset filters</button>
-  <div class="group"><h2>Precise category</h2><div class="chips" id="f-category"></div></div>
+  <div class="group"><h2>Category</h2><div class="chips" id="f-category"></div></div>
   <div class="group"><h2>Platform</h2><div class="chips" id="f-model"></div></div>
-  <div class="group"><h2>Broad-screen label</h2><div class="chips" id="f-screen"></div></div>
   <div class="group"><h2>Year</h2><div class="chips" id="f-year"></div></div>
-  <div class="note">All 77,578 English ShareChat conversations were screened
-    (<b>user turns only</b>, broad 3-label pass); the 4,569 flagged ones then got a
-    strict 4-label pass. Shown here: every conversation in the three
-    disaster-related precise categories, with the <b>full exchange including the
-    assistant's responses</b>. Dates are the conversation's creation/share time
-    where the platform dump provides one (Claude never does; “—” = unavailable).</div>
 </aside>
 <main>
   <div id="conversations-view"><div id="cards"></div><button id="more">Show 50 more</button></div>
@@ -143,8 +135,8 @@ main { flex: 1; padding: 18px 22px; max-width: 1060px; }
 <script src="evacuation_data.js"></script>
 <script>
 const DATA = window.EVACUATION_DATA;
-const FIELDS = ["category", "model", "screen", "year"];
-const active = { category: new Set(), model: new Set(), screen: new Set(), year: new Set() };
+const FIELDS = ["category", "model", "year"];
+const active = { category: new Set(), model: new Set(), year: new Set() };
 let shown = 50;
 
 // keep the strict evacuation hits on top of the chip list instead of sorting by count
@@ -198,7 +190,6 @@ function card(row) {
     <div class="card-head">
       <span class="tag cat-${row.category}">${row.category}</span>
       <span class="tag">${row.model}</span>
-      <span class="tag">screen: ${row.screen}</span>
       <span class="tag mono">${row.date || "date —"}</span>
       <span class="tag mono">${row.num_messages} msgs</span>
       <span class="preview">${escapeHtml(first.content.slice(0, 180))}</span>
