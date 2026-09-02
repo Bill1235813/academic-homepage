@@ -1,21 +1,23 @@
 <meta charset="utf-8">
-<title>ShareChat / WildChat Topic Explorer</title>
+<title>ShareChat Emergency-Evacuation Explorer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root {
   --ground: #FAFAF8; --panel: #FFFFFF; --ink: #1F2328; --muted: #647084;
   --border: #E4E4DE; --accent: #4F5BD5; --accent-soft: #EEEFFB;
-  --sat: #1E7F4F; --sat-soft: #E7F3EC; --dsat: #B3403A; --dsat-soft: #F9ECEB;
-  --advice: #9A5B00; --advice-soft: #FBF1DF;
+  --evac: #B3403A; --evac-soft: #F9ECEB;
+  --emerg: #9A5B00; --emerg-soft: #FBF1DF;
+  --disaster: #1E7F4F; --disaster-soft: #E7F3EC;
   --chip: #F1F1EC; --user-bg: #F3F4FB; --shadow: 0 1px 3px rgba(31,35,40,.07);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --ground: #14161A; --panel: #1C1F26; --ink: #E8E8E4; --muted: #99A1B3;
     --border: #2A2E37; --accent: #8891F0; --accent-soft: #262A45;
-    --sat: #4CC38A; --sat-soft: #1B2E25; --dsat: #E5736C; --dsat-soft: #362022;
-    --advice: #F0B45A; --advice-soft: #3A2E18;
+    --evac: #E5736C; --evac-soft: #362022;
+    --emerg: #F0B45A; --emerg-soft: #3A2E18;
+    --disaster: #4CC38A; --disaster-soft: #1B2E25;
     --chip: #242832; --user-bg: #222636; --shadow: 0 1px 3px rgba(0,0,0,.4);
   }
 }
@@ -50,7 +52,7 @@ aside { width: 268px; flex-shrink: 0; padding: 16px; border-right: 1px solid var
 #clear { width: 100%; padding: 6px; margin-bottom: 14px; border: 1px solid var(--border);
          border-radius: 6px; background: none; color: var(--muted); font: inherit;
          font-size: 12px; cursor: pointer; }
-#clear:hover { color: var(--dsat); border-color: var(--dsat); }
+#clear:hover { color: var(--evac); border-color: var(--evac); }
 main { flex: 1; padding: 18px 22px; max-width: 1060px; }
 .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
         box-shadow: var(--shadow); margin-bottom: 14px; overflow: hidden; }
@@ -59,9 +61,9 @@ main { flex: 1; padding: 18px 22px; max-width: 1060px; }
 .card-head:hover { background: var(--accent-soft); }
 .tag { padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 500;
        background: var(--chip); color: var(--muted); }
-.tag.corpus { background: var(--accent-soft); color: var(--accent); }
-.tag.impact { background: var(--sat-soft); color: var(--sat); }
-.tag.intent { background: var(--advice-soft); color: var(--advice); }
+.tag.cat-evacuation_natural_disaster { background: var(--evac-soft); color: var(--evac); font-weight: 600; }
+.tag.cat-evacuation_other_emergency { background: var(--emerg-soft); color: var(--emerg); }
+.tag.cat-natural_disaster_other { background: var(--disaster-soft); color: var(--disaster); }
 .note { margin-top: 6px; color: var(--muted); font-size: 11.5px; line-height: 1.45; }
 .preview { color: var(--muted); font-size: 13px; flex-basis: 100%;
            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -75,9 +77,9 @@ main { flex: 1; padding: 18px 22px; max-width: 1060px; }
              text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
 .reason { margin-top: 8px; padding: 9px 12px; border-left: 3px solid var(--accent);
           background: var(--accent-soft); font-size: 13px; border-radius: 0 8px 8px 0; }
-.reason.impact { border-color: var(--sat); background: var(--sat-soft); }
-.reason.intent { border-color: var(--advice); background: var(--advice-soft); }
 .reason b { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.source-link { font-size: 12px; color: var(--accent); text-decoration: none; margin-top: 8px; display: inline-block; }
+.source-link:hover { text-decoration: underline; }
 #more { display: block; margin: 10px auto 30px; padding: 8px 22px; border: 1px solid var(--border);
         border-radius: 8px; background: var(--panel); color: var(--accent); font: inherit; cursor: pointer; }
 #more:hover { border-color: var(--accent); }
@@ -97,8 +99,8 @@ main { flex: 1; padding: 18px 22px; max-width: 1060px; }
 </style>
 
 <header>
-  <h1>Topic Explorer</h1>
-  <span class="sub">ShareChat &amp; WildChat conversations with Qwen3.8 advice-seeking intent / topic / impact labels</span>
+  <h1>Evacuation Explorer</h1>
+  <span class="sub">ShareChat conversations flagged by the two-pass emergency-evacuation screen</span>
   <nav class="tabs">
     <button class="tab on" data-view="conversations">Conversations</button>
     <button class="tab" data-view="prompts">Prompts</button>
@@ -110,44 +112,43 @@ main { flex: 1; padding: 18px 22px; max-width: 1060px; }
 <div class="wrap">
 <aside>
   <button id="clear">Reset filters</button>
-  <div class="group"><h2>Corpus</h2><div class="chips" id="f-corpus"></div></div>
+  <div class="group"><h2>Precise category</h2><div class="chips" id="f-category"></div></div>
   <div class="group"><h2>Platform</h2><div class="chips" id="f-model"></div></div>
-  <div class="group"><h2>Advice-seeking intent</h2><div class="chips" id="f-intent"></div></div>
-  <div class="group"><h2>Topic</h2><div class="chips" id="f-topic"></div></div>
-  <div class="group"><h2>Impact scope</h2><div class="chips" id="f-impact"></div></div>
-  <div class="note">Intent is judged from the <b>user turns only</b> on all 12,643 ShareChat conversations;
-    topic and impact scope are then re-run on the 606 <b>seeking_advice</b> ones (all included here).
-    Other ShareChat rows are a 25-per-topic sample with the earlier all-conversation topic label;
-    WildChat rows carry topic labels only (“—” = not run).</div>
+  <div class="group"><h2>Broad-screen label</h2><div class="chips" id="f-screen"></div></div>
+  <div class="group"><h2>Year</h2><div class="chips" id="f-year"></div></div>
+  <div class="note">All 77,578 English ShareChat conversations were screened
+    (<b>user turns only</b>, broad 3-label pass); the 4,569 flagged ones then got a
+    strict 4-label pass. Shown here: every conversation in the three
+    disaster-related precise categories, with the <b>full exchange including the
+    assistant's responses</b>. Dates are the conversation's creation/share time
+    where the platform dump provides one (Claude never does; “—” = unavailable).</div>
 </aside>
 <main>
   <div id="conversations-view"><div id="cards"></div><button id="more">Show 50 more</button></div>
   <div id="prompts-view" hidden>
     <div class="prompt-panel">
-      <h2>Stage 1 — Advice-seeking intent prompt (6 categories, user turns only)</h2>
-      <div class="meta" id="intent-prompt-meta"></div>
-      <pre id="intent-prompt"></pre>
+      <h2>Pass 1 — Broad screen (3 labels, user turns only, all 77,578 conversations)</h2>
+      <div class="meta" id="screen-prompt-meta"></div>
+      <pre id="screen-prompt"></pre>
     </div>
     <div class="prompt-panel">
-      <h2>Stage 2 — Topic classification prompt (13 categories)</h2>
-      <div class="meta" id="topic-prompt-meta"></div>
-      <pre id="topic-prompt"></pre>
-    </div>
-    <div class="prompt-panel">
-      <h2>Stage 3 — Impact scoping prompt (5 scopes, uses the assistant's responses)</h2>
-      <div class="meta" id="impact-prompt-meta"></div>
-      <pre id="impact-prompt"></pre>
+      <h2>Pass 2 — Precise classification (4 labels, user turns only, the 4,569 flagged)</h2>
+      <div class="meta" id="precise-prompt-meta"></div>
+      <pre id="precise-prompt"></pre>
     </div>
   </div>
 </main>
 </div>
 
-<script src="topics_data.js"></script>
+<script src="evacuation_data.js"></script>
 <script>
-const DATA = window.TOPIC_DATA;
-const FIELDS = ["corpus", "model", "intent", "topic", "impact"];
-const active = { corpus: new Set(), model: new Set(), intent: new Set(), topic: new Set(), impact: new Set() };
+const DATA = window.EVACUATION_DATA;
+const FIELDS = ["category", "model", "screen", "year"];
+const active = { category: new Set(), model: new Set(), screen: new Set(), year: new Set() };
 let shown = 50;
+
+// keep the strict evacuation hits on top of the chip list instead of sorting by count
+const CATEGORY_ORDER = ["evacuation_natural_disaster", "evacuation_other_emergency", "natural_disaster_other"];
 
 function values(field) {
   const counts = {};
@@ -155,7 +156,10 @@ function values(field) {
     const value = row[field] || "—";
     counts[value] = (counts[value] || 0) + 1;
   }
-  return Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  const entries = Object.entries(counts);
+  if (field === "category") return entries.sort((a, b) => CATEGORY_ORDER.indexOf(a[0]) - CATEGORY_ORDER.indexOf(b[0]));
+  if (field === "year") return entries.sort();
+  return entries.sort((a, b) => b[1] - a[1]);
 }
 
 function buildChips() {
@@ -189,14 +193,13 @@ function escapeHtml(text) {
 function card(row) {
   const div = document.createElement("div");
   div.className = "card";
-  const intentTag = row.intent ? `<span class="tag intent">${row.intent}</span>` : "";
-  const impactTag = row.impact ? `<span class="tag impact">${row.impact}</span>` : "";
   const first = row.messages.find(m => m.role === "user") || row.messages[0];
   div.innerHTML = `
     <div class="card-head">
-      <span class="tag corpus">${row.corpus}</span>
-      <span class="tag">${row.model}</span>${intentTag}
-      <span class="tag">${row.topic}</span>${impactTag}
+      <span class="tag cat-${row.category}">${row.category}</span>
+      <span class="tag">${row.model}</span>
+      <span class="tag">screen: ${row.screen}</span>
+      <span class="tag mono">${row.date || "date —"}</span>
       <span class="tag mono">${row.num_messages} msgs</span>
       <span class="preview">${escapeHtml(first.content.slice(0, 180))}</span>
     </div>
@@ -204,9 +207,8 @@ function card(row) {
       ${row.messages.map(m => `<div class="msg ${m.role === "user" ? "user" : "llm"}">
         <div class="role">${m.role === "user" ? "User" : "Assistant"}</div>${escapeHtml(m.content)}</div>`).join("")}
       ${row.truncated ? `<div class="sub" style="color:var(--muted)">(conversation truncated for the viewer)</div>` : ""}
-      ${row.intent ? `<div class="reason intent"><b>Intent — ${row.intent}:</b> ${escapeHtml(row.intent_reasoning || "")}</div>` : ""}
-      <div class="reason"><b>Topic — ${row.topic}:</b> ${escapeHtml(row.topic_reasoning || "")}</div>
-      ${row.impact ? `<div class="reason impact"><b>Impact — ${row.impact}:</b> ${escapeHtml(row.impact_reasoning || "")}</div>` : ""}
+      <div class="reason"><b>Precise pass — ${row.category}:</b> ${escapeHtml(row.reasoning || "")}</div>
+      <a class="source-link" href="${row.url}" target="_blank" rel="noopener">original shared conversation ↗</a>
     </div>`;
   div.querySelector(".card-head").onclick = () => div.classList.toggle("open");
   return div;
@@ -233,7 +235,7 @@ document.getElementById("clear").onclick = () => {
 
 // ------- Prompts tab -------
 const PROMPTS = window.PROMPT_DATA || {};
-for (const stage of ["intent", "topic", "impact"]) {
+for (const stage of ["screen", "precise"]) {
   document.getElementById(stage + "-prompt").textContent = PROMPTS[stage] || "(not embedded)";
   document.getElementById(stage + "-prompt-meta").textContent = PROMPTS[stage + "_meta"] || "";
 }
